@@ -1,20 +1,31 @@
+/* Profile photo styling */
 .about-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Maintain 9:16 aspect ratio */
+/* Optional hover effect */
+.about-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* 9:16 aspect ratio container for the image */
 .about-image-wrapper {
   aspect-ratio: 9 / 16;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
+  border-radius: 20px;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  background-color: #f0f0f0; /* fallback background */
 }
 
+/* Spacing for smaller screens */
 @media (max-width: 767.98px) {
   .about-image-wrapper {
     margin-bottom: 1.5rem;

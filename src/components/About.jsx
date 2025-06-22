@@ -6,11 +6,11 @@ const About = () => {
   return (
     <section className="about-section bg-white py-5" id="about">
       <div className="container px-3 px-md-5">
-        <div className="row align-items-center g-5">
-          {/* Left Side: Image */}
-          <div className="col-md-5 text-center">
+        <div className="row align-items-center justify-content-center g-5">
+          {/* Left: Profile Image */}
+          <div className="col-12 col-md-5 d-flex justify-content-center">
             <motion.div
-              className="about-image-wrapper mx-auto"
+              className="about-image-wrapper"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: 'spring', stiffness: 80, duration: 1 }}
@@ -23,10 +23,10 @@ const About = () => {
             </motion.div>
           </div>
 
-          {/* Right Side: Text */}
-          <div className="col-md-7">
+          {/* Right: Text Section */}
+          <div className="col-12 col-md-7">
             <motion.div
-              className="bg-light p-4 p-md-5 rounded shadow text-start"
+              className="bg-light p-4 p-md-5 rounded shadow text-start h-100"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
@@ -36,10 +36,10 @@ const About = () => {
                 Being passionate about building responsive and efficient web experiences, I enjoy exploring full-stack development and gradually gaining confidence in technologies like Java, Python, and PHP. I’m always eager to learn how tools fit together and love discovering ways to solve real-world problems. While I’m still growing, I focus on crafting thoughtful solutions and connecting with others who enjoy tech. Open to learning and collaboration, I’m excited about building meaningful things together. <strong>Programmer & Web Developer</strong>
               </p>
 
-              <div className="row text-secondary fs-6 gx-4 gy-3">
+              <div className="row text-secondary fs-6 gx-4 gy-2">
                 <div className="col-sm-6"><strong>Birthday:</strong> 22 Aug 04</div>
                 <div className="col-sm-6"><strong>Degree:</strong> Bachelors of Computer Applications</div>
-                <div className="col-sm-6"><strong>Website:</strong> <a href="https://github.com/pranav1495" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a></div>
+                <div className="col-sm-6"><strong>Website:</strong> <a href="https://pranaveswar.github.io" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a></div>
                 <div className="col-sm-6"><strong>Email:</strong> <a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a></div>
                 <div className="col-sm-6"><strong>Phone:</strong> 9074261433</div>
                 <div className="col-sm-6"><strong>Freelance:</strong> Available</div>
