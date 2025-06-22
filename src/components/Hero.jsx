@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import bannerImage from '../assets/banner.jpg';
+import bannerImage from '../assets/image.png';
 import './css/Hero.css';
 
 const Hero = () => {

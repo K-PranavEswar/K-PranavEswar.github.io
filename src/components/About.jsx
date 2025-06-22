@@ -33,9 +33,9 @@ const About = () => {
             >
               <h2 className="text-primary fw-bold mb-3">About Me</h2>
               <p className="text-secondary fs-6 lh-lg mb-4">
-                Being passionate about building responsive and efficient web experiences, I enjoy exploring full-stack development and gradually gaining confidence in technologies like Java, Python, and PHP. I’m always eager to learn how tools fit together and love discovering ways to solve real-world problems. While I’m still growing, I focus on crafting thoughtful solutions and connecting with others who enjoy tech. Open to learning and collaboration, I’m excited about building meaningful things together. <strong>Programmer & Web Developer</strong>
+                Being passionate about building responsive and efficient web experiences, I enjoy exploring full-stack development and gradually gaining confidence in technologies like Java, Python, and PHP. I’m always eager to learn how tools fit together and love discovering ways to solve real-world problems. While I’m still growing, I focus on crafting thoughtful solutions and connecting with others who enjoy tech. Open to learning and collaboration, I’m excited about building meaningful things together. 
               </p>
-
+                <strong><h2><b><i>Programmer & Web Developer</i></b></h2></strong>
               <div className="row text-secondary fs-6 gx-4 gy-2">
                 <div className="col-sm-6"><strong>Birthday:</strong> 22 Aug 04</div>
                 <div className="col-sm-6"><strong>Degree:</strong> Bachelors of Computer Applications</div>

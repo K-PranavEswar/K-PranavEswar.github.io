@@ -12,7 +12,7 @@ const Header = () => {
     <>
       <header className="header sticky-top bg-white shadow-sm px-3 py-2">
         <div className="d-flex justify-content-between align-items-center container-fluid">
-          <a href="#home" className="fs-4 fw-bold text-dark text-decoration-none">Portfolio</a>
+          <a href="#home" className="fs-4 fw-bold text-dark text-decoration-none"><b>Portfolio</b></a>
 
           {/* Hamburger icon for small screens */}
           <div className="d-md-none fs-4 text-dark" onClick={() => setOpen(!open)} role="button">
