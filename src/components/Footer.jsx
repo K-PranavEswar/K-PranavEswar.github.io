@@ -8,7 +8,7 @@ const Footer = () => {
       {/* Social Icons */}
       <div className="mb-4 flex justify-center gap-8 text-2xl">
         <a
-          href="https://github.com/pranaveswar"
+          href="https://github.com/pranav1495"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-black transition"
@@ -17,7 +17,7 @@ const Footer = () => {
         </a>
         &nbsp;&nbsp;
         <a
-          href="https://linkedin.com/in/pranaveswar"
+          href="https://www.linkedin.com/in/k-pranav-eswar1/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-600 transition"

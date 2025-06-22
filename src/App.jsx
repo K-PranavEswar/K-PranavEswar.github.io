@@ -9,6 +9,7 @@ import Footer from './components/Footer'; // ✅ Add Footer component
 // Animation on Scroll
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import About from './components/About';
 
 function App() {
   useEffect(() => {
@@ -23,7 +24,9 @@ function App() {
         <section id="home" data-aos="fade-up">
           <Hero />
         </section>
-
+        <section id="about" data-aos="fade-up">
+          <About />
+        </section>
         <section id="projects" data-aos="fade-up" className="mt-16">
           <Projects />
         </section>
