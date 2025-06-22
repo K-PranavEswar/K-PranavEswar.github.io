@@ -6,55 +6,58 @@ import './css/Hero.css';
 const Hero = () => {
   return (
     <section className="bg-light hero" id="home">
-      <motion.div
-        className="blurred-box mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <img
-          src={bannerImage}
-          alt="Hero Banner"
-          className="blurred-image interactive-blur"
-        />
-      </motion.div>
+      <div className="container hero-content d-flex flex-column flex-md-row align-items-center justify-content-between">
+        {/* Left Side: Text */}
+        <div className="hero-text text-center text-md-start">
+          <motion.h1
+            className="fs-1 fw-bold"
+            initial={{ x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            K PRANAV ESWAR
+          </motion.h1>
 
-      {/* Intro Text */}
-      <div className="container text-center pt-4 px-3 px-md-5">
-        <motion.h1
-          className="fs-1 fw-bold mt-4"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          K PRANAV ESWAR
-        </motion.h1>
+          <motion.p
+            className="lead text-primary fw-semibold fs-5 mt-3"
+            initial={{ x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            I'm a{' '}
+            <span style={{ color: '#2563eb', fontWeight: 'bold' }}>
+              <Typewriter
+                words={[
+                  'Bachelor of Computer Application Student',
+                  'Full Stack Developer',
+                  'MERN Enthusiast',
+                  'Artist',
+                  'Gamer',
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            </span>
+          </motion.p>
+        </div>
 
-        <motion.p
-          className="lead text-primary fw-semibold fs-5 mt-2"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+        {/* Right Side: Blurred Image */}
+        <motion.div
+          className="blurred-box mt-4 mt-md-0"
+          initial={{ x: 30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          I'm a{' '}
-          <span style={{ color: '#2563eb', fontWeight: 'bold' }}>
-            <Typewriter
-              words={[
-                'Bachelor of Computer Application Student',
-                'Full Stack Developer',
-                'MERN Enthusiast',
-                'Artist',
-                'Gamer',
-              ]}
-              loop={0}
-              cursor
-              cursorStyle="|"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
-          </span>
-        </motion.p>
+          <img
+            src={bannerImage}
+            alt="Hero Banner"
+            className="blurred-image interactive-blur"
+          />
+        </motion.div>
       </div>
     </section>
   );
