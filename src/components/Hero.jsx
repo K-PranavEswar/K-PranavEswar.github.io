@@ -29,7 +29,7 @@ const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}
       >
-        Full Stack Developer | BCA Graduate | University of Kerala
+        Full Stack Developer | BCA Graduate | Mern Enthusiast 
       </motion.p>
 
       <motion.div
@@ -39,10 +39,11 @@ const Hero = () => {
         transition={{ delay: 0.8, duration: 1 }}
       >
         <p className="mb-4 text-gray-700">
-          As a BCA graduate and an aspiring Full-Stack Developer, I am passionate about building scalable and efficient web applications. With a strong foundation in Java, Python and PHP, I specialize in developing end-to-end solutions that enhance functionality, performance, and user experience.
-          I am constantly exploring new technologies, refining my problem-solving skills, and staying up to date with industry trends. My goal is to create impactful solutions that address real-world challenges while collaborating with like-minded professionals.
-          Driven by curiosity and a commitment to growth, I am always open to learning, networking, and embracing new opportunities in the tech space. 
-          Let’s connect and build something great together!
+          Being passionate about building responsive and efficient web experiences. With a BCA background, I’m exploring full-stack development and gradually gaining confidence in technologies like Java, Python, and PHP.
+
+I enjoy learning how different tools fit together, and I’m always curious to discover new ways to solve real-world problems. While I’m still growing, I aim to build thoughtful, usable solutions and connect with others who share a love for tech.
+
+I'm open to learning, collaborating, and evolving with every step. Let’s build something meaningful together.
         </p>
       </motion.div>
     </section>

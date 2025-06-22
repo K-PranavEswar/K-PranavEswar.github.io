@@ -5,28 +5,28 @@ import {
   FaDatabase, FaGitAlt, FaGithub, FaPython, FaJava,
   FaPhp, FaLinux, FaFigma, FaBootstrap
 } from 'react-icons/fa';
+import { SiJquery, SiAxios } from 'react-icons/si'; // importing jQuery and Axios icons
 
 const skills = [
   { name: 'HTML', icon: <FaHtml5 /> },
   { name: 'CSS', icon: <FaCss3Alt /> },
   { name: 'JavaScript', icon: <FaJsSquare /> },
+  { name: 'jQuery', icon: <SiJquery /> },
+  { name: 'AJAX', icon: <SiAxios /> },
   { name: 'React', icon: <FaReact /> },
   { name: 'Node.js', icon: <FaNodeJs /> },
-  { name: 'SQL', icon: <FaDatabase /> },
-  { name: 'Git', icon: <FaGitAlt /> },
-  { name: 'GitHub', icon: <FaGithub /> },
+  { name: 'Express', icon: <FaNodeJs /> },
+  { name: 'MongoDB', icon: <FaDatabase /> },
+  { name: 'MySQL', icon: <FaDatabase /> },
+  { name: 'PHP', icon: <FaPhp /> },
   { name: 'Python', icon: <FaPython /> },
   { name: 'Java', icon: <FaJava /> },
-  { name: 'PHP', icon: <FaPhp /> },
-  { name: 'Linux', icon: <FaLinux /> },
+  { name: 'C++', icon: <FaJava /> },
+  { name: 'Git', icon: <FaGitAlt /> },
+  { name: 'GitHub', icon: <FaGithub /> },
+  { name: 'VS Code', icon: <FaGithub /> },
   { name: 'Figma', icon: <FaFigma /> },
   { name: 'Bootstrap', icon: <FaBootstrap /> },
-  { name: 'MongoDB', icon: <FaDatabase /> },
-  { name: 'Tailwind', icon: <FaCss3Alt /> },
-  { name: 'Express', icon: <FaNodeJs /> },
-  { name: 'MySQL', icon: <FaDatabase /> },
-  { name: 'C++', icon: <FaJava /> },
-  { name: 'VS Code', icon: <FaGithub /> },
 ];
 
 const Skills = () => {
