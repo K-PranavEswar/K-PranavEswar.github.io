@@ -1,0 +1,86 @@
+/* Header section */
+.header {
+    backdrop-filter: blur(10px);
+    background: rgba(49, 49, 49, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header inner container */
+  .header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo style */
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  /* Menu toggle icon (FaBars / FaTimes) */
+  .menu-toggle {
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #ffffff;
+    z-index: 1001;
+  }
+  
+  /* Sidebar container */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: #ffffff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  /* Sidebar header (X icon close) */
+  .sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  /* Close icon size */
+  .sidebar-header svg {
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  /* Sidebar navigation links */
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  
+  .sidebar-links a {
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .sidebar-links a:hover {
+    color: #2563eb;
+  }
+  
