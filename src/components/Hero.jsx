@@ -18,31 +18,32 @@ const Hero = () => {
             K PRANAV ESWAR
           </motion.h1>
 
-          <motion.p
-            className="lead text-primary fw-semibold fs-5 mt-3"
-            initial={{ x: -30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            I'm a{' '}
-            <span style={{ color: '#2563eb', fontWeight: 'bold' }}>
-              <Typewriter
-                words={[
-                  'Bachelor of Computer Application Student',
-                  'Full Stack Developer',
-                  'MERN Enthusiast',
-                  'Artist',
-                  'Gamer',
-                ]}
-                loop={0}
-                cursor
-                cursorStyle="|"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1500}
-              />
-            </span>
-          </motion.p>
+<motion.p
+  className="lead fw-semibold fs-5 mt-3"
+  initial={{ x: -30, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ delay: 0.5, duration: 0.6 }}
+>
+  <span style={{ color: '#000' }}>I'm a </span>
+  <span style={{ color: '#2563eb', fontWeight: 'bold' }}>
+    <Typewriter
+      words={[
+        'Bachelor of Computer Application Student',
+        'Full Stack Developer',
+        'MERN Enthusiast',
+        'Artist',
+        'Gamer',
+      ]}
+      loop={0}
+      cursor
+      cursorStyle="|"
+      typeSpeed={70}
+      deleteSpeed={50}
+      delaySpeed={1500}
+    />
+  </span>
+</motion.p>
+
         </div>
 
         {/* Right Side: Blurred Image */}
