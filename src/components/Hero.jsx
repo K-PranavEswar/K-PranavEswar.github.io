@@ -67,7 +67,7 @@ const Hero = () => {
   <a href="https://www.linkedin.com/in/k-pranav-eswar1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-dark fs-4">
     <FaLinkedin />
   </a>
-  <a href="https://www.youtube.com/@equizzle_arts" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-dark fs-4">
+  <a href="https://www.youtube.com/@equizzlearts" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-dark fs-4">
     <FaYoutube />
   </a>
 </div>
