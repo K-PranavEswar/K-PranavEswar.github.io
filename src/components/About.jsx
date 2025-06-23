@@ -9,7 +9,7 @@ const aboutDetails = [
   { icon: 'bi-briefcase-fill', label: 'Freelance', value: 'Available' },
   { icon: 'bi-mortarboard', label: 'Degree', value: 'BCA' },
   { icon: 'bi-droplet-half', label: 'Blood Group', value: 'O+ve' },
-  { icon: 'bi-globe', label: 'Website', value: <a href="https://pranaveswar.github.io" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a> },
+  { icon: 'bi-globe', label: 'Website', value: <a href="https://github.com/pranav1495?tab=repositories" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a> },
   { icon: 'bi-geo-alt-fill', label: 'City', value: 'Trivandrum' },
   { icon: 'bi-envelope-fill', label: 'Email', value: <a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a> },
   { icon: 'bi-map-fill', label: 'State', value: 'Kerala' },
