@@ -70,6 +70,8 @@
 @media (max-width: 480px) {
   .hero-full {
     padding: 1.5rem 1rem;
+    transform: scale(0.93); /* 🔍 Zoom-out effect */
+    transform-origin: top center;
   }
 
   .hero-content h1 {
@@ -118,6 +120,7 @@
     font-size: 1.8rem;
   }
 }
+
 .hero-scroll-wrapper::-webkit-scrollbar {
   display: none;
 }

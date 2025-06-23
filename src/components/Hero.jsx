@@ -10,14 +10,12 @@ const Hero = () => {
       className="hero-full"
       id="home"
       style={{
-  backgroundImage: `url(${Background})`,
-  backgroundAttachment: 'fixed',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  overflow:'hidden'
-}}
-
+        backgroundImage: `url(${Background})`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
       <div className="hero-overlay" />
 
@@ -57,20 +55,20 @@ const Hero = () => {
           </span>
         </motion.p>
 
-<div className="social-icons mt-4 d-flex gap-4">
-  <a href="https://x.com/PranavEswar5" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-dark fs-4">
-    <FaTwitter />
-  </a>
-  <a href="https://www.instagram.com/equizzle_arts" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-dark fs-4">
-    <FaInstagram />
-  </a>
-  <a href="https://www.linkedin.com/in/k-pranav-eswar1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-dark fs-4">
-    <FaLinkedin />
-  </a>
-  <a href="https://www.youtube.com/@equizzlearts" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-dark fs-4">
-    <FaYoutube />
-  </a>
-</div>
+        <div className="social-icons mt-4 d-flex gap-4">
+          <a href="https://x.com/PranavEswar5" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <FaTwitter />
+          </a>
+          <a href="https://www.instagram.com/equizzle_arts" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <FaInstagram />
+          </a>
+          <a href="https://www.linkedin.com/in/k-pranav-eswar1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FaLinkedin />
+          </a>
+          <a href="https://www.youtube.com/@equizzlearts" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <FaYoutube />
+          </a>
+        </div>
       </div>
     </section>
   );

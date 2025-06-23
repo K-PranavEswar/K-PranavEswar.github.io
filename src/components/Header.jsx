@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './css/Header.css';
@@ -7,15 +7,22 @@ const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const toggleNav = () => setIsOpen(!isOpen);
   const closeNav = () => setIsOpen(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <>
       <header className="header">
         <div className="header-container">
-          <a href="#home" className="logo">K PRANAV ESWAR</a>
+          <a href="#home" className="logo">PRANAV ESWAR</a>
 
           <nav className="nav-desktop">
             {navItems.map((item) => (
@@ -35,9 +42,21 @@ const Header = () => {
         {isOpen && (
           <motion.nav
             className="nav-mobile"
-            initial={{ x: '-100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
+            initial={
+              isMobile
+                ? { x: '-100%', scale: 1.1, opacity: 0 }
+                : { x: '-100%' }
+            }
+            animate={
+              isMobile
+                ? { x: 0, scale: 1, opacity: 1 }
+                : { x: 0 }
+            }
+            exit={
+              isMobile
+                ? { x: '-100%', scale: 0.95, opacity: 0 }
+                : { x: '-100%' }
+            }
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
           >
             <div className="nav-mobile-header">

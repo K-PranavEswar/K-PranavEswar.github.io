@@ -1,15 +1,14 @@
-/* Sticky Transparent Header */
+/* Sticky transparent header */
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Header Container */
 .header-container {
   max-width: 1200px;
   margin: auto;
@@ -19,7 +18,7 @@
   align-items: center;
 }
 
-/* Logo / Brand */
+/* Branding */
 .logo {
   font-size: 1.6rem;
   font-weight: 600;
@@ -33,15 +32,15 @@
   color: #2563eb;
 }
 
-/* Desktop Navigation */
+/* Desktop links */
 .nav-desktop {
   display: none;
 }
 
 .nav-link {
-  margin-left: 1.5rem;
   color: #ffffff;
   font-weight: 500;
+  margin-left: 1.5rem;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease;
@@ -51,7 +50,7 @@
   color: #2563eb;
 }
 
-/* Mobile Toggle (Hamburger) */
+/* Hamburger icon */
 .nav-toggle {
   font-size: 1.8rem;
   cursor: pointer;
@@ -65,7 +64,7 @@
   transform: rotate(90deg);
 }
 
-/* Mobile Navigation Panel */
+/* Mobile sidebar */
 .nav-mobile {
   position: fixed;
   top: 0;
@@ -111,7 +110,7 @@
   transform: translateX(5px);
 }
 
-/* Show Desktop Nav and Hide Hamburger on Larger Screens */
+/* Responsive Styles */
 @media (min-width: 768px) {
   .nav-desktop {
     display: flex;
@@ -119,5 +118,22 @@
 
   .nav-toggle {
     display: none;
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+}
+
+/* ✅ Zoom-out for screens ≤ 480px */
+@media (max-width: 480px) {
+  .header-container {
+    transform: scale(0.94);
+    transform-origin: top center;
+  }
+
+  .nav-mobile {
+    transform: scale(0.94);
+    transform-origin: left top;
   }
 }
