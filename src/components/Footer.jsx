@@ -1,40 +1,38 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import './css/Footer.css'; // Optional: for extra styling if needed
+import './css/Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-center py-6 text-gray-600 text-sm">
+    <footer className="footer">
       {/* Social Icons */}
-      <div className="mb-4 flex justify-center gap-8 text-2xl">
+      <div className="footer-icons">
         <a
           href="https://github.com/pranav1495"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-black transition"
+          aria-label="GitHub"
         >
-          <FaGithub />
+          <FaGithub size={32} />
         </a>
-        &nbsp;&nbsp;
         <a
           href="https://www.linkedin.com/in/k-pranav-eswar1/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-blue-600 transition"
+          aria-label="LinkedIn"
         >
-          <FaLinkedin />
+          <FaLinkedin size={32} />
         </a>
-        &nbsp;&nbsp;
         <a
           href="mailto:pranavartist1@gmail.com"
-          className="hover:text-red-500 transition"
+          aria-label="Email"
         >
-          <FaEnvelope />
+          <FaEnvelope size={32} />
         </a>
       </div>
 
       {/* Copyright */}
-      <div className="text-sm">
+      <div className="footer-text">
         © {new Date().getFullYear()} Pranav Eswar. All rights reserved.
       </div>
     </footer>

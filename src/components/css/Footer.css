@@ -38,4 +38,6 @@ footer a {
     margin-top: 0.5rem;
     color: #6b7280; /* gray-500 */
   }
-  
+  .footer-icons svg {
+  font-size: 2rem; /* 32px */
+}

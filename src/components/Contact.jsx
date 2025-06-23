@@ -1,8 +1,43 @@
-import React from 'react';
-import './css/Contact.css';
-import { BiMap, BiEnvelope, BiPhone } from 'react-icons/bi';
+import React, { useState } from "react";
+import "./css/Contact.css";
+import { BiMap, BiEnvelope, BiPhone } from "react-icons/bi";
+import axios from "axios";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      const res = await axios.post("http://localhost/contact-form/contact.php", formData);
+      if (res.data.success) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("❌ Server error. Try again later.");
+    }
+  };
+
   return (
     <section id="contact" className="contact-section">
       <div className="container" data-aos="fade-up">
@@ -11,9 +46,9 @@ const Contact = () => {
         </div>
 
         <div className="row mt-1">
+          {/* Contact Info */}
           <div className="col-lg-4">
             <div className="info">
-
               <div className="address d-flex align-items-start">
                 <BiMap className="icon me-3" />
                 <div>
@@ -37,32 +72,33 @@ const Contact = () => {
                   <p>+91 9074261433</p>
                 </div>
               </div>
-
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Form */}
           <div className="col-lg-8 mt-5 mt-lg-0">
-            <form className="email-form">
+            <form className="email-form" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-md-6 form-group">
                   <input
                     type="text"
                     name="name"
                     className="form-control"
-                    id="name"
                     placeholder="Your Name"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="col-md-6 form-group mt-3 mt-md-0">
                   <input
                     type="email"
-                    className="form-control"
                     name="email"
-                    id="email"
+                    className="form-control"
                     placeholder="Your Email"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -70,32 +106,30 @@ const Contact = () => {
               <div className="form-group mt-3">
                 <input
                   type="text"
-                  className="form-control"
                   name="subject"
-                  id="subject"
+                  className="form-control"
                   placeholder="Subject"
                   required
+                  value={formData.subject}
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="form-group mt-3">
                 <textarea
-                  className="form-control"
                   name="message"
                   rows="5"
+                  className="form-control"
                   placeholder="Message"
                   required
+                  value={formData.message}
+                  onChange={handleChange}
                 ></textarea>
               </div>
 
-              <div className="my-3">
-                <div className="loading">Loading...</div>
-                <div className="error-message"></div>
-                <div className="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-
-              <div className="text-center">
+              <div className="text-center mt-3">
                 <button type="submit">Send Message</button>
+                <p className="form-status mt-2">{status}</p>
               </div>
             </form>
           </div>
