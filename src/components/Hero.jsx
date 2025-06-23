@@ -56,7 +56,6 @@ const Hero = () => {
           </span>
         </motion.p>
 
-        {/* Social Media Icons */}
 <div className="social-icons mt-4 d-flex gap-4">
   <a href="https://x.com/PranavEswar5" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-dark fs-4">
     <FaTwitter />
