@@ -42,7 +42,7 @@ const Skills = () => {
       <div className="skills-grid">
         {skills.map((skill, index) => (
           <div
-            className="skill-item"
+            className={`skill-item ${activeIndex === index ? 'clicked' : ''}`}
             key={index}
             onClick={() => handleClick(index)}
           >
@@ -51,7 +51,7 @@ const Skills = () => {
 
             {activeIndex === index && (
               <div
-                className="skill-hover-chart fade-in"
+                className="skill-hover-chart"
                 style={{
                   background: `conic-gradient(#2563eb ${skill.percent * 3.6}deg, #e5e7eb 0deg)`
                 }}
