@@ -1,13 +1,13 @@
 .projects-section {
   padding: 60px 20px;
-  background-color: #ffffff; /* White background */
+  background-color: #ffffff;
   text-align: center;
 }
 
 .projects-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2563eb; /* Blue heading */
+  color: #2563eb;
   margin-bottom: 40px;
 }
 
@@ -33,55 +33,69 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.project-card h3 {
+.project-title {
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 10px;
   color: #111827;
 }
 
-.project-card p {
+.project-description {
   font-size: 1rem;
   color: #374151;
-  min-height: 3rem;
   line-height: 1.6;
+  min-height: 4rem;
 }
 
-/* Scroll position offset for navbar */
+/* Scroll position offset for sticky nav */
 #projects {
   scroll-margin-top: 80px;
 }
 
-/* 🌐 Responsive Media Queries */
+/* Responsive Breakpoints */
 @media (max-width: 768px) {
   .projects-title {
     font-size: 2rem;
   }
 
-  .project-card h3 {
+  .project-title {
     font-size: 1.25rem;
   }
 
-  .project-card p {
+  .project-description {
     font-size: 0.95rem;
   }
 }
 
 @media (max-width: 576px) {
   .projects-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .project-card {
     padding: 18px;
   }
 
-  .project-card h3 {
+  .project-title {
     font-size: 1.1rem;
   }
 
-  .project-card p {
+  .project-description {
     font-size: 0.9rem;
     min-height: auto;
   }
+}
+.project-logo {
+  max-width: 100px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-scroll-wrapper {
+  scrollbar-width: none; /* Firefox */
 }

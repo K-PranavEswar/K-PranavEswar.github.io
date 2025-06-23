@@ -15,6 +15,7 @@ const Hero = () => {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
+  overflow:'hidden'
 }}
 
     >

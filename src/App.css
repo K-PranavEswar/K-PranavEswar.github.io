@@ -1,23 +1,43 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Root container */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
+/* Logo */
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
   transition: filter 300ms;
+  will-change: filter;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Spinning logo animation */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,17 +53,58 @@
   }
 }
 
+/* Card */
 .card {
   padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #f8f9fa;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer text */
 .read-the-docs {
   color: #888;
+  font-size: 0.9rem;
+  margin-top: 1rem;
 }
-.body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-  background: #ffffff;
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  #root {
+    padding: 1.5rem 1rem;
+  }
+
+  .logo {
+    height: 4.5em;
+    padding: 1em;
+  }
+
+  .card {
+    padding: 1.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  #root {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .logo {
+    height: 4em;
+    padding: 0.75em;
+  }
+
+  .card {
+    padding: 1.2em;
+  }
+
+  .read-the-docs {
+    font-size: 0.85rem;
+  }
 }
