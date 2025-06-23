@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import './css/Projects.css';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleDown, FaFolderOpen } from 'react-icons/fa';
 import chrisAccessLogo from '../assets/favicon.ico';
 import medinetLogo from '../assets/mednet.png';
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const projectList = [
+  const bcaProjects = [
     {
       title: 'ChrisAccessEdge',
       logo: chrisAccessLogo,
@@ -31,45 +31,53 @@ const Projects = () => {
     <section className="projects-section" id="projects">
       <h2 className="projects-title">Projects</h2>
 
-      <div className="projects-grid">
-        {projectList.map((project, index) => (
-          <div
-            className={`project-card ${activeIndex === index ? 'active' : ''}`}
-            key={index}
-            onClick={() => handleToggle(index)}
-          >
-            <div className="project-header">
-              <div className="project-info">
-                {project.logo && (
-                  <img
-                    src={project.logo}
-                    alt={`${project.title} logo`}
-                    className="project-logo"
-                  />
+      {/* Folder: BCA Projects */}
+      <div className="folder-block">
+        <div className="folder-header">
+          <FaFolderOpen className="folder-icon" />
+          <h3 className="folder-title">BCA Projects</h3>
+        </div>
+
+        <div className="projects-grid">
+          {bcaProjects.map((project, index) => (
+            <div
+              className={`project-card ${activeIndex === index ? 'active' : ''}`}
+              key={index}
+              onClick={() => handleToggle(index)}
+            >
+              <div className="project-header">
+                <div className="project-info">
+                  {project.logo && (
+                    <img
+                      src={project.logo}
+                      alt={`${project.title} logo`}
+                      className="project-logo"
+                    />
+                  )}
+                  <h3 className="project-title">{project.title}</h3>
+                </div>
+
+                {activeIndex === index && (
+                  <FaAngleDown className="blinking-arrow" />
                 )}
-                <h3 className="project-title">{project.title}</h3>
               </div>
 
               {activeIndex === index && (
-                <FaAngleDown className="blinking-arrow" />
+                <p className="project-description">
+                  <Typewriter
+                    words={[project.description]}
+                    loop={1}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={30}
+                    deleteSpeed={0}
+                    delaySpeed={1000}
+                  />
+                </p>
               )}
             </div>
-
-            {activeIndex === index && (
-              <p className="project-description">
-                <Typewriter
-                  words={[project.description]}
-                  loop={1}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={30}
-                  deleteSpeed={0}
-                  delaySpeed={1000}
-                />
-              </p>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

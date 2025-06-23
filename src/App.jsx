@@ -4,7 +4,9 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
-import Footer from './components/Footer'; // ✅ Add Footer component
+import Footer from './components/Footer'; 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 // Animation on Scroll
 import AOS from 'aos';
@@ -24,17 +26,19 @@ function App() {
         <section id="home" data-aos="fade-up">
           <Hero />
         </section>
+        <br></br>
         <section id="about" data-aos="fade-up">
           <About />
         </section>
+        <br></br>
         <section id="projects" data-aos="fade-up" className="mt-16">
           <Projects />
         </section>
-
+        <br></br>
         <section id="skills" data-aos="fade-up" className="mt-16">
           <Skills />
         </section>
-
+        <br></br>
         <section id="contact" data-aos="fade-up" className="mt-16">
           <Contact />
         </section>

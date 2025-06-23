@@ -22,7 +22,7 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header-container">
-          <a href="#home" className="logo">PRANAV ESWAR</a>
+          <a href="#home" className="logo">PRANAV ESWAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
           <nav className="nav-desktop">
             {navItems.map((item) => (

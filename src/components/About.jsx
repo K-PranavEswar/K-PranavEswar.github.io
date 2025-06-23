@@ -1,12 +1,33 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import pranavImage from '../assets/pranav.jpg';
 import './css/About.css';
+import { BsChevronDown } from 'react-icons/bs';
+
+const aboutDetails = [
+  { icon: 'bi-calendar-event', label: 'Birthday', value: '22 Aug 2004' },
+  { icon: 'bi-briefcase-fill', label: 'Freelance', value: 'Available' },
+  { icon: 'bi-mortarboard', label: 'Degree', value: 'BCA' },
+  { icon: 'bi-droplet-half', label: 'Blood Group', value: 'O+ve' },
+  { icon: 'bi-globe', label: 'Website', value: <a href="https://pranaveswar.github.io" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a> },
+  { icon: 'bi-geo-alt-fill', label: 'City', value: 'Trivandrum' },
+  { icon: 'bi-envelope-fill', label: 'Email', value: <a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a> },
+  { icon: 'bi-map-fill', label: 'State', value: 'Kerala' },
+  { icon: 'bi-telephone-fill', label: 'Phone', value: '9074261433' },
+  { icon: 'bi-flag-fill', label: 'Country', value: 'India' },
+];
 
 const About = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleBlock = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className="about-section" id="about">
-      <div className="row">
-        {/* Left Column: Photo */}
+      <div className="row about-grid">
+        {/* Photo */}
         <motion.div
           className="about-image-wrapper col-md-5 col-12"
           initial={{ scale: 0, opacity: 0 }}
@@ -16,9 +37,8 @@ const About = () => {
           <img src={pranavImage} alt="Pranav Eswar" className="about-photo" />
         </motion.div>
 
-        {/* Right Column: Text Content */}
-        <div className="text-start col-md-7 col-12">
-          {/* Heading */}
+        {/* Text Content */}
+        <div className="about content col-md-7 col-12 text-start">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,7 +47,6 @@ const About = () => {
             About Me
           </motion.h2>
 
-          {/* Intro Paragraph (hidden on small devices) */}
           <motion.p
             className="intro-text d-none d-md-block"
             initial={{ opacity: 0, y: 20 }}
@@ -39,34 +58,43 @@ const About = () => {
             Eager to learn and collaborate, I strive to craft thoughtful solutions to real-world problems.
           </motion.p>
 
-          {/* Profession */}
           <motion.h3
-            className="profession"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <b><i>Programmer & Web Developer</i></b>
+            Programmer & Web Developer
           </motion.h3>
-          <motion.div
-            className="details-grid"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div><strong>Birthday:</strong> 22 Aug 2004</div>
-            <div><strong>Degree:</strong> BCA</div>
-            <div><strong>Website:</strong> <a href="https://pranaveswar.github.io" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a></div>
-            <div><strong>Email:</strong> <a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a></div>
-            <div><strong>Phone:</strong> 9074261433</div>
-            <div><strong>Freelance:</strong> Available</div>
-            <div><strong>Blood Group:</strong> O+ve</div>
-            <div><strong>City:</strong> Trivandrum</div>
-            <div><strong>State:</strong> Kerala</div>
-            <div><strong>Country:</strong> India</div>
-          </motion.div>
-          <br></br>
-          {/* Closing Paragraph */}
+
+          {/* Grid Style Toggle Blocks */}
+          <div className="toggle-grid">
+            {aboutDetails.map((item, index) => (
+              <div
+                className={`toggle-block ${openIndex === index ? 'open' : ''}`}
+                key={index}
+                onClick={() => toggleBlock(index)}
+              >
+                <div className="toggle-header">
+                  <i className={`bi ${item.icon}`}></i>
+                  <strong>{item.label}</strong>
+                  <BsChevronDown
+                    className={`chevron-icon ${openIndex === index ? 'rotated' : ''}`}
+                  />
+                </div>
+                {openIndex === index && (
+                  <motion.div
+                    className="toggle-content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {item.value}
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
+
           <motion.p
             className="closing-text"
             initial={{ opacity: 0, y: 10 }}

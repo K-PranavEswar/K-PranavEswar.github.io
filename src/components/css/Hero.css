@@ -70,19 +70,20 @@
 @media (max-width: 480px) {
   .hero-full {
     padding: 1.5rem 1rem;
-    width: 1000px;
+    width: 450px;
     right: 40px;
-    /* Removed transform scale to fix white space */
   }
 
   .hero-content h1 {
     font-size: 1.8rem;
     line-height: 2.2rem;
+    text-align: center;
   }
 
   .hero-content p {
     font-size: 0.95rem;
     line-height: 1.55rem;
+    text-align: center;
   }
 
   .social-icons {

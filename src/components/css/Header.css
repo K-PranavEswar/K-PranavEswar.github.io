@@ -1,31 +1,33 @@
 /* Sticky transparent header */
 .header {
   position: sticky;
-  top: 0;
+  top: 0%;
   z-index: 1000;
+  margin:0%;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  background-position: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .header-container {
   max-width: 500x;
   margin:0px;
-  padding: 0.5rem;
+  padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-around;
 }
 
 /* Branding */
 .logo {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700px;
+  color: #fdfdfd;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  transition: color 0.3s ease;
+  white-space: nowrap;
 }
+
 
 .logo:hover {
   color: #2563eb;
