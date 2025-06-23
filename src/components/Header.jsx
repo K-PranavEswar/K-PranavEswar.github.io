@@ -1,80 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './css/Header.css';
 
-const Header = () => {
-  const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
+const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
 
-  // Check window width for mobile
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // Initial check
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNav = () => setIsOpen(!isOpen);
+  const closeNav = () => setIsOpen(false);
 
   return (
     <>
       <header className="header">
-        {/* Mobile Black Top Bar */}
-        {isMobile && (
-          <div className="mobile-bar">
-            <div className="menu-toggle" onClick={() => setOpen(!open)}>
-              {open ? <FaTimes /> : <FaBars />}
-            </div>
-          </div>
-        )}
+        <div className="header-container">
+          <a href="#home" className="logo">K PRANAV ESWAR</a>
 
-        {/* Header container for PC */}
-        {!isMobile && (
-          <div className="header-container">
-            {/* Logo on desktop */}
-            <a href="#home" className="logo desktop-logo">K PRANAV ESWAR</a>
+          <nav className="nav-desktop">
+            {navItems.map((item) => (
+              <a key={item} href={`#${item}`} className="nav-link">
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            ))}
+          </nav>
 
-            {/* Desktop Nav */}
-            <nav className="desktop-nav">
-              {navItems.map((item) => (
-                <a key={item} href={`#${item}`} className="nav-link">
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </a>
-              ))}
-            </nav>
+          <div className="nav-toggle" onClick={toggleNav}>
+            {isOpen ? <FaTimes /> : <FaBars />}
           </div>
-        )}
+        </div>
       </header>
 
-      {/* Mobile Sidebar Nav */}
       <AnimatePresence>
-        {open && (
-          <motion.div
-            className="mobile-nav"
+        {isOpen && (
+          <motion.nav
+            className="nav-mobile"
             initial={{ x: '-100%' }}
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
-            transition={{ type: 'spring', stiffness: 250 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
           >
-            {/* Close Icon inside sidebar */}
-            <div className="sidebar-header">
-              <FaTimes onClick={() => setOpen(false)} />
+            <div className="nav-mobile-header">
+              <FaTimes onClick={closeNav} />
             </div>
-
-            {/* Logo inside sidebar */}
-            <div className="mobile-logo">
-              <a href="#home" className="logo">K PRANAV ESWAR</a>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="sidebar-links">
+            <div className="nav-mobile-links">
               {navItems.map((item) => (
-                <a key={item} href={`#${item}`} onClick={() => setOpen(false)}>
+                <a key={item} href={`#${item}`} onClick={closeNav}>
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </a>
               ))}
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>
