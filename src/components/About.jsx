@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import pranavImage from '../assets/pranav.jpg';
 import './css/About.css';
@@ -19,17 +19,26 @@ const aboutDetails = [
 
 const About = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 992);
 
   const toggleBlock = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 992);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <section className="about-section" id="about">
-      <div className="row about-grid">
+    <section className={`about-section ${isDesktop ? 'enlarged' : ''}`} id="about">
+      <div className="about-grid">
         {/* Photo */}
         <motion.div
-          className="about-image-wrapper col-md-5 col-12"
+          className="about-image-wrapper"
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 80, duration: 1 }}
@@ -38,7 +47,7 @@ const About = () => {
         </motion.div>
 
         {/* Text Content */}
-        <div className="about content col-md-7 col-12 text-start">
+        <div className="about content">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
