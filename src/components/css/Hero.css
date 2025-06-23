@@ -1,7 +1,8 @@
 .hero-full {
   position: relative;
-  width: 100vw;
-  height: 99svh;
+  width: 100%;
+  max-width: 120vw;
+  height: 100vh; /* changed from 100svh for wider support */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,14 +12,13 @@
   justify-content: center;
   color: #000;
   text-align: center;
-  padding: 0 1.5rem;
+  padding: 1.5rem 4rem;
   overflow: hidden;
 }
 
 .hero-overlay {
   position: absolute;
   top: 0;
-  left: 0;
   height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.6);
@@ -70,8 +70,9 @@
 @media (max-width: 480px) {
   .hero-full {
     padding: 1.5rem 1rem;
-    transform: scale(0.93); /* 🔍 Zoom-out effect */
-    transform-origin: top center;
+    width: 1000px;
+    right: 40px;
+    /* Removed transform scale to fix white space */
   }
 
   .hero-content h1 {
@@ -120,6 +121,21 @@
     font-size: 1.8rem;
   }
 }
+
+/* Optional: For desktop side-by-side layout */
+/*
+@media (min-width: 992px) {
+  .hero-full {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 2rem 4rem;
+  }
+  .hero-content {
+    max-width: 50%;
+  }
+}
+*/
 
 .hero-scroll-wrapper::-webkit-scrollbar {
   display: none;

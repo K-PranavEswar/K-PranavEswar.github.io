@@ -10,15 +10,27 @@ html, body {
   background-color: #ffffff;
   scroll-behavior: smooth;
   width: 100%;
+  height: 100%;        /* Added for full height */
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column; /* Make body flex column */
+  min-height: 100vh;       /* Full viewport height */
 }
 
-/* Root container */
 #root {
+  flex: 1 0 auto; /* Allow #root to grow and shrink */
+  display: flex;
+  flex-direction: column;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem 1rem;
   text-align: center;
+  /* Ensure it fills available space above footer */
+}
+
+/* Optional: main content styling if using <main> tag */
+main {
+  flex-grow: 1; /* Take up remaining vertical space */
 }
 
 /* Logo */
@@ -67,11 +79,49 @@ html, body {
   transform: translateY(-5px);
 }
 
-/* Footer text */
-.read-the-docs {
-  color: #888;
-  font-size: 0.9rem;
-  margin-top: 1rem;
+/* Footer */
+footer {
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  background-color: #2a2a2a;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin: 0;        /* Remove any default margin */
+  position: relative;
+  z-index: 10;
+}
+
+/* Footer link hover */
+footer a {
+  transition: transform 0.3s ease;
+}
+
+footer a:hover {
+  transform: translateY(-2px);
+}
+
+footer .footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+footer .footer-icons a {
+  color: #4b5563;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .footer-icons a:hover {
+  color: #2563eb;
+  transform: translateY(-3px);
+}
+
+footer .footer-text {
+  margin-top: 0.5rem;
+  color: #6b7280;
 }
 
 /* Responsive adjustments */
@@ -102,9 +152,5 @@ html, body {
 
   .card {
     padding: 1.2em;
-  }
-
-  .read-the-docs {
-    font-size: 0.85rem;
   }
 }

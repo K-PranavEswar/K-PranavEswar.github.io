@@ -10,12 +10,11 @@
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem 1.5rem;
+  max-width: 500x;
+  margin:0px;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 /* Branding */
