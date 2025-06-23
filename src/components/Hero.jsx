@@ -57,20 +57,20 @@ const Hero = () => {
         </motion.p>
 
         {/* Social Media Icons */}
-        <div className="social-icons mt-4">
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-            <FaTwitter />
-          </a>&nbsp;&nbsp;&nbsp;
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
-            <FaInstagram />
-          </a>&nbsp;&nbsp;&nbsp;
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin />
-          </a>&nbsp;&nbsp;&nbsp;
-          <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
-            <FaYoutube />
-          </a>
-        </div>
+<div className="social-icons mt-4 d-flex gap-4">
+  <a href="https://x.com/PranavEswar5" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-dark fs-4">
+    <FaTwitter />
+  </a>
+  <a href="https://www.instagram.com/equizzle_arts" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-dark fs-4">
+    <FaInstagram />
+  </a>
+  <a href="https://www.linkedin.com/in/k-pranav-eswar1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-dark fs-4">
+    <FaLinkedin />
+  </a>
+  <a href="https://www.youtube.com/@equizzle_arts" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-dark fs-4">
+    <FaYoutube />
+  </a>
+</div>
       </div>
     </section>
   );
