@@ -18,7 +18,7 @@
 .about-image-wrapper {
   aspect-ratio: 9 / 16;
   width: 100%;
-  max-width: 280px;
+  max-width: 300px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);

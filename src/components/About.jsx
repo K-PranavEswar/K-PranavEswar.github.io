@@ -37,7 +37,7 @@ const About = () => {
               </p>
                 <strong><h2><b><i>Programmer & Web Developer</i></b></h2></strong>
               <div className="row text-secondary fs-6 gx-4 gy-2">
-                <div className="col-sm-6"><strong>Birthday:</strong> 22 Aug 04</div>
+                <div className="col-sm-6"><strong>Birthday:</strong> 22 Aug 2004</div>
                 <div className="col-sm-6"><strong>Degree:</strong> Bachelors of Computer Applications</div>
                 <div className="col-sm-6"><strong>Website:</strong> <a href="https://pranaveswar.github.io" target="_blank" rel="noopener noreferrer">pranaveswar.github.io</a></div>
                 <div className="col-sm-6"><strong>Email:</strong> <a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a></div>
