@@ -52,7 +52,7 @@ const Resume = () => {
             </p>
             <ul className="resume-contact-list">
               <li>Trivandrum, 695027 India</li>
-              <li>(+91) 97782-90796</li>
+              <li>(+91) 9074261433</li>
               <li><a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a></li>
             </ul>
           </div>
