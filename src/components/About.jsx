@@ -65,7 +65,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             I'm passionate about building responsive and efficient web experiences. I explore full-stack
-            development and am steadily gaining confidence in technologies like Java, Python, and PHP.
+            development and am steadily gaining confidence in technologies like Java and PHP.
             Eager to learn and collaborate, I strive to craft thoughtful solutions to real-world problems.
           </motion.p>
 
