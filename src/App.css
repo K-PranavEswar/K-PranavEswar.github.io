@@ -7,10 +7,8 @@
 
 html,
 body {
-  height: 100%;
+  width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   scroll-behavior: smooth;
@@ -19,32 +17,37 @@ body {
 
 /* === Root Layout === */
 #root {
-  flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* === App Wrapper === */
+/* === Application Wrapper === */
 .app-wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 100%; /* ✅ Remove max width constraint */
+  margin: 0 auto;
+  padding: 1rem 0.5rem;
 }
 
 /* === Main Content === */
 main {
-  flex: 1;
+  flex: 1 0 auto;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0; /* ✅ Remove unwanted space */
 }
 
-/* === Section Cards === */
+/* === Card Styling === */
 .card {
-  padding: 2em;
+  padding: 1.5em; /* ✅ Slightly reduced */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
@@ -65,9 +68,9 @@ footer {
   font-size: 0.875rem;
   width: 100%;
   margin-top: auto;
-  margin-bottom: 0;
 }
 
+/* Footer Text & Icons */
 .footer-quote {
   margin-bottom: 1rem;
   font-size: 0.95rem;
@@ -165,14 +168,18 @@ footer {
 
 /* === Responsive Breakpoints === */
 @media (max-width: 991px) {
+  .app-main {
+    padding: 1rem 0.5rem; /* ✅ Tight padding */
+  }
+
   .card {
-    padding: 1.5em;
+    padding: 1.2em;
   }
 }
 
 @media (max-width: 576px) {
   .card {
-    padding: 1.2em;
+    padding: 1rem;
   }
 
   .footer-icons {
@@ -189,8 +196,7 @@ footer {
     font-size: 1.2rem;
     padding: 0.5rem;
   }
-
-  /* Extra: prevent whitespace after footer */
+    /* Extra: prevent whitespace after footer */
   main {
     padding-bottom: 1rem;
   }
