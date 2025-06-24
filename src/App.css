@@ -1,21 +1,22 @@
-/* Reset */
+/* === Reset === */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Global font and layout base */
-html, body {
+/* === Global Styles === */
+html,
+body {
+  width: 100%;
+  height: 100%;
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   scroll-behavior: smooth;
-  width: 100%;
-  height: 100%;
   overflow-x: hidden;
 }
 
-/* Layout container */
+/* === Root Layout === */
 #root {
   display: flex;
   flex-direction: column;
@@ -23,47 +24,16 @@ html, body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  text-align: center;
+  width: 100%;
 }
 
-/* Main content grows to push footer */
+/* === Main Content === */
 main {
   flex-grow: 1;
+  width: 100%;
 }
 
-/* Logo styles */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  transition: filter 300ms;
-  will-change: filter;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-/* Logo spinning animation (optional) */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-/* Card styling */
+/* === Card Styling (Reusable Block) === */
 .card {
   padding: 2em;
   border-radius: 12px;
@@ -77,7 +47,7 @@ main {
   transform: translateY(-5px);
 }
 
-/* Footer styling */
+/* === Footer === */
 footer {
   flex-shrink: 0;
   background-color: #2a2a2a;
@@ -85,11 +55,11 @@ footer {
   text-align: center;
   color: #4b5563;
   font-size: 0.875rem;
+  width: 100%;
   position: relative;
   z-index: 10;
 }
 
-/* Footer quote */
 .footer-quote {
   margin-bottom: 1rem;
   font-size: 0.95rem;
@@ -98,13 +68,13 @@ footer {
   line-height: 1.5;
 }
 
-/* Footer icons */
 .footer-icons {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .footer-icons a {
@@ -121,22 +91,16 @@ footer {
   font-size: 1.75rem;
 }
 
-/* Footer text */
 .footer-text {
   margin-top: 0.5rem;
   color: #6b7280;
   font-size: 0.8rem;
 }
 
-/* Responsive adjustments */
+/* === Responsive Breakpoints === */
 @media (max-width: 991px) {
   #root {
     padding: 1.5rem 1rem;
-  }
-
-  .logo {
-    height: 4.5em;
-    padding: 1em;
   }
 
   .card {
@@ -149,12 +113,11 @@ footer {
     padding: 1.2rem 0.8rem;
   }
 
-  .logo {
-    height: 4em;
-    padding: 0.75em;
-  }
-
   .card {
     padding: 1.2em;
+  }
+
+  .footer-icons {
+    gap: 1rem;
   }
 }
