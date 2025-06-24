@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './css/Header.css';
 
-const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
+const navItems = ['home', 'about', 'resume', 'skills', 'projects', 'contact'];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +18,18 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Prevent scrolling when mobile nav is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
   return (
     <>
       <header className="header">
         <div className="header-container">
-          <a href="#home" className="logo">PRANAV ESWAR</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#home" className="logo">
+            PRANAV ESWAR
+          </a>
 
           <nav className="nav-desktop">
             {navItems.map((item) => (
@@ -32,7 +39,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="nav-toggle" onClick={toggleNav}>
+          <div className="nav-toggle" onClick={toggleNav} aria-label="Toggle Navigation">
             {isOpen ? <FaTimes /> : <FaBars />}
           </div>
         </div>
@@ -42,21 +49,9 @@ const Header = () => {
         {isOpen && (
           <motion.nav
             className="nav-mobile"
-            initial={
-              isMobile
-                ? { x: '-100%', scale: 1.1, opacity: 0 }
-                : { x: '-100%' }
-            }
-            animate={
-              isMobile
-                ? { x: 0, scale: 1, opacity: 1 }
-                : { x: 0 }
-            }
-            exit={
-              isMobile
-                ? { x: '-100%', scale: 0.95, opacity: 0 }
-                : { x: '-100%' }
-            }
+            initial={{ x: '-100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '-100%', opacity: 0 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
           >
             <div className="nav-mobile-header">
