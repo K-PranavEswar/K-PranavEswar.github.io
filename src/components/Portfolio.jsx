@@ -40,7 +40,7 @@ const artworks = [
 const Portfolio = () => {
   return (
     <section className="portfolio-section" id="portfolio">
-      <h2 className="portfolio-title">My Portrait Artworks</h2>
+      <h2 className="portfolio-title">My Portfolio</h2>
       <div className="portfolio-grid">
         {artworks.map((art, index) => (
           <a

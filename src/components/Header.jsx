@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../assets/tiger.png'; // ✅ Correct path
+import logo from '../assets/tiger.png';
 import './css/Header.css';
 
-const navItems = ['home', 'about', 'resume', 'skills', 'projects', 'contact'];
+const navItems = ['home', 'about', 'resume', 'skills', 'projects','portfolio','contact'];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
