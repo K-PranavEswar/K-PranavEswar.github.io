@@ -7,8 +7,10 @@
 
 html,
 body {
-  width: 100%;
+  height: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   scroll-behavior: smooth;
@@ -17,20 +19,22 @@ body {
 
 /* === Root Layout === */
 #root {
+  flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* === Application Wrapper === */
+/* === App Wrapper === */
 .app-wrapper {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-.app-main {
+/* === Main Content === */
+main {
   flex: 1;
   width: 100%;
   max-width: 1280px;
@@ -38,13 +42,7 @@ body {
   padding: 2rem 1rem;
 }
 
-/* === Main Content === */
-main {
-  flex: 1 0 auto;
-  width: 100%;
-}
-
-/* === Card Styling === */
+/* === Section Cards === */
 .card {
   padding: 2em;
   border-radius: 12px;
@@ -61,15 +59,15 @@ main {
 /* === Footer === */
 footer {
   background-color: #2a2a2a;
-  padding: 1.5rem 1rem;
+  padding: 15px;
   text-align: center;
   color: #4b5563;
   font-size: 0.875rem;
   width: 100%;
   margin-top: auto;
+  margin-bottom: 0;
 }
 
-/* Footer Text & Icons */
 .footer-quote {
   margin-bottom: 1rem;
   font-size: 0.95rem;
@@ -189,6 +187,15 @@ footer {
     bottom: 1rem;
     right: 1rem;
     font-size: 1.2rem;
-    padding: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  /* Extra: prevent whitespace after footer */
+  main {
+    padding-bottom: 1rem;
+  }
+
+  footer {
+    padding-bottom: 10px;
   }
 }

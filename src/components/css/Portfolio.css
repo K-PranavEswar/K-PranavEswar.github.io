@@ -1,0 +1,102 @@
+/* Portfolio Section Styles */
+.portfolio-section {
+  padding: 70px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.portfolio-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  text-decoration: underline  #83b3ff;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 48px;
+}
+
+/* Grid Layout */
+.portfolio-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* 4-column layout for desktops */
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 3-column layout for tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2-column layout for phones */
+@media (max-width: 767px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-title {
+    font-size: 2rem;
+  }
+}
+
+/* Image Card Styling */
+.portfolio-item {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3 / 4; /* Keeps portrait orientation */
+  transition: transform 0.35s ease;
+  border-radius: 14px;
+}
+
+/* Zoom effect on image hover */
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.03);
+}
+
+/* Bubble click animation */
+.portfolio-item:active {
+  animation: bubble 0.4s ease-out forwards;
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

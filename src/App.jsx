@@ -5,12 +5,13 @@ import Resume from './components/Resume';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Portfolio from './components/Portfolio'; // ✅ Renamed import
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Scroll from './components/Scroll';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
-// Animation on Scroll
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-800">
       <Header />
+
       <main className="flex-1 w-full max-w-7xl px-4 sm:px-6 lg:px-10 py-10 mx-auto">
         <section id="home" data-aos="fade-up">
           <Hero />
@@ -43,10 +45,16 @@ function App() {
           <Projects />
         </section>
 
+        <section id="portfolio" data-aos="fade-up" className="mt-16">
+          <Portfolio />
+        </section>
+
         <section id="contact" data-aos="fade-up" className="mt-16">
           <Contact />
         </section>
-      </main> <Footer />
+      </main>
+
+      <Footer />
       <Scroll />
     </div>
   );
