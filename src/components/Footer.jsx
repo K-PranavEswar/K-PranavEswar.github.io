@@ -5,6 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-inner">
+        <h3>K PRANAV ESWAR</h3>
         <p className="footer-quote">
           Passion fuels progress. Always learning, always building.
         </p>

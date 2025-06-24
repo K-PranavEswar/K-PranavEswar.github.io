@@ -1,18 +1,18 @@
-/* Sticky full-width transparent header */
 .header {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  width: 100%;
+  width: 100vw; /* Force full viewport width */
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
   margin: 0;
   padding: 0;
 }
+
 
 /* Header container stretches full width */
 .header-container {
@@ -140,5 +140,12 @@
     width: 100%;
     padding: 2rem 1.2rem;
   }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
 }
 

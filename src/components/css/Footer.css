@@ -1,19 +1,19 @@
 footer {
-  background-color: #1f1f1f; /* dark neutral */
+  background-color: #1f1f1f;
   color: #9ca3af;
   font-size: 0.875rem;
   position: relative;
   z-index: 10;
-  right:0%;
-  top:500px;
-  font-family: 'Inter', sans-serif;
   width: 100%;
+  font-family: 'Inter', sans-serif;
+  margin-top: auto; /* Pushes footer to bottom */
+  padding: 2rem 1rem 1.5rem;
+  box-sizing: border-box;
 }
 
 .footer-inner {
-  max-width: 1200px; /* Or 1200px if you prefer */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
   text-align: center;
 }
 
@@ -32,6 +32,7 @@ footer {
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer-icons a {
@@ -52,4 +53,20 @@ footer {
   color: #6b7280;
   font-size: 0.8rem;
   margin-top: 0.5rem;
+}
+
+/* === Responsive Footer Fixes === */
+@media (max-width: 576px) {
+  .footer-quote {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  .footer-icons {
+    gap: 1rem;
+  }
+
+  .footer-text {
+    font-size: 0.75rem;
+  }
 }

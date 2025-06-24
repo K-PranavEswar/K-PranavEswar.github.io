@@ -119,3 +119,15 @@ button[type="submit"]:hover {
     width: 100%;
   }
 }
+.contact-section {
+  padding: 80px 20px;
+  background-color: #f9fafb;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInContact 3s ease forwards;
+
+  /* Ensure no extra height is added */
+  margin-bottom: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}

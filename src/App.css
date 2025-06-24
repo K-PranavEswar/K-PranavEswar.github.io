@@ -9,7 +9,7 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   scroll-behavior: smooth;
@@ -21,24 +21,25 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* === Main Content === */
 main {
-  flex-grow: 1;
+  flex: 1 0 auto;
   width: 100%;
 }
 
-/* === Card Styling (Reusable Block) === */
+/* === Card Styling === */
 .card {
   padding: 2em;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   margin-bottom: 2rem;
   transition: transform 0.3s ease;
 }
@@ -56,10 +57,11 @@ footer {
   color: #4b5563;
   font-size: 0.875rem;
   width: 100%;
-  position: relative;
+  margin-top: auto;
   z-index: 10;
 }
 
+/* Footer Text & Icons */
 .footer-quote {
   margin-bottom: 1rem;
   font-size: 0.95rem;
@@ -97,27 +99,88 @@ footer {
   font-size: 0.8rem;
 }
 
+/* === Scroll To Top Button === */
+.scroll-arrow {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 50%;
+  padding: 0.9rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-arrow.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.scroll-arrow.hide {
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeOutDown 0.3s ease forwards;
+}
+
+.scroll-arrow:hover {
+  background-color: #1e40af;
+  transform: scale(1.08);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
 /* === Responsive Breakpoints === */
 @media (max-width: 991px) {
-  #root {
-    padding: 1.5rem 1rem;
-  }
-
   .card {
     padding: 1.5em;
   }
 }
 
 @media (max-width: 576px) {
-  #root {
-    padding: 1.2rem 0.8rem;
-  }
-
   .card {
     padding: 1.2em;
   }
 
   .footer-icons {
     gap: 1rem;
+  }
+
+  .footer-quote {
+    font-size: 0.85rem;
+  }
+
+  .scroll-arrow {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    padding: 0.7rem;
   }
 }
