@@ -1,33 +1,38 @@
 .scroll-arrow {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   background-color: #2563eb;
-  color: #fff;
+  color: white;
   border-radius: 50%;
-  padding: 0.8rem;
-  font-size: 1.2rem;
+  padding: 0.9rem;
+  font-size: 1.4rem;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.5s ease;
-  z-index: 1000;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-arrow.show {
   opacity: 1;
-  animation: fadeInUp 0.6s ease;
+  pointer-events: auto;
+  transform: translateY(0);
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.scroll-arrow.hide {
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeOutDown 0.3s ease forwards;
 }
 
 .scroll-arrow:hover {
   background-color: #1e40af;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* Fade out when hidden */
-.scroll-arrow.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  animation: fadeOutDown 0.6s ease;
-}
-
-/* ===== Animations ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -50,12 +55,11 @@
   }
 }
 
-/* ===== Media Query for Mobile ===== */
 @media (max-width: 640px) {
   .scroll-arrow {
     bottom: 1rem;
     right: 1rem;
-    padding: 0.6rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    padding: 0.7rem;
   }
 }

@@ -10,23 +10,23 @@ const Scroll = () => {
     const scrolled = window.scrollY;
     if (scrolled > 100) {
       setShowArrow(true);
-      setHideAfterClick(false); // reset if user scrolls again
+      setHideAfterClick(false);
     } else {
-      setShowArrow(false); // hide when near top
+      setShowArrow(false);
     }
   };
 
   const handleClick = () => {
-    const homeSection = document.getElementById('home');
-    if (homeSection) {
-      homeSection.scrollIntoView({ behavior: 'smooth' });
+    const home = document.getElementById('home');
+    if (home) {
+      home.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     setTimeout(() => {
       setHideAfterClick(true);
-    }, 1200); // delay to allow scroll to complete
+    }, 1500);
   };
 
   useEffect(() => {
@@ -34,14 +34,11 @@ const Scroll = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <div
-      className={`scroll-arrow ${showArrow ? 'fade-in' : ''} ${hideAfterClick ? 'fade-out' : ''}`}
-      onClick={handleClick}
-    >
+  return showArrow && !hideAfterClick ? (
+    <div className="scroll-arrow show" onClick={handleClick}>
       <FaArrowUp />
     </div>
-  );
+  ) : null;
 };
 
 export default Scroll;
