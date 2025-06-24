@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Scroll from './components/Scroll';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Animation on Scroll
@@ -46,6 +47,7 @@ function App() {
           <Contact />
         </section>
       </main>
+      <Scroll />
       <Footer />
     </div>
   );
