@@ -4,10 +4,16 @@ import './css/Scroll.css';
 
 const Scroll = () => {
   const [showArrow, setShowArrow] = useState(false);
+  const [hideAfterClick, setHideAfterClick] = useState(false);
 
   const handleScroll = () => {
     const scrolled = window.scrollY;
-    setShowArrow(scrolled > 100);
+    if (scrolled > 100) {
+      setShowArrow(true);
+      setHideAfterClick(false); // reset if user scrolls again
+    } else {
+      setShowArrow(false); // hide when near top
+    }
   };
 
   const handleClick = () => {
@@ -17,6 +23,10 @@ const Scroll = () => {
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    setTimeout(() => {
+      setHideAfterClick(true);
+    }, 1200); // delay to allow scroll to complete
   };
 
   useEffect(() => {
@@ -24,11 +34,14 @@ const Scroll = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return showArrow ? (
-    <div className="scroll-arrow" onClick={handleClick}>
+  return (
+    <div
+      className={`scroll-arrow ${showArrow ? 'fade-in' : ''} ${hideAfterClick ? 'fade-out' : ''}`}
+      onClick={handleClick}
+    >
       <FaArrowUp />
     </div>
-  ) : null;
+  );
 };
 
 export default Scroll;
