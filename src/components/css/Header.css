@@ -1,45 +1,73 @@
+/* === Reset & Base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* ✅ Prevent right-side overflow */
+}
+
+/* === Header === */
 .header {
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw; /* Force full viewport width */
+  width: 100%; /* ✅ Changed from 100vw to prevent overflow */
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  margin: 0;
-  padding: 0;
+  overflow-x: hidden; /* ✅ Extra safety */
 }
 
-
-/* Header container stretches full width */
+/* === Container === */
 .header-container {
-  width: 100%;
-  margin: 0;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 1rem 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  overflow-x: hidden; /* ✅ Prevent children overflow */
 }
 
-/* Branding (logo) on the left */
+/* === Logo === */
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.2rem;
   font-weight: 700;
   color: #fdfdfd;
   text-decoration: none;
   white-space: nowrap;
-  padding: 0;
-  margin: 0;
 }
 
 .logo:hover {
   color: #2563eb;
 }
 
-/* Desktop nav links */
+.logo img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+}
+
+.logo span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* === Desktop Navigation === */
 .nav-desktop {
   display: none;
 }
@@ -57,7 +85,7 @@
   color: #2563eb;
 }
 
-/* Hamburger icon on the right */
+/* === Hamburger Icon === */
 .nav-toggle {
   font-size: 1.8rem;
   cursor: pointer;
@@ -70,7 +98,7 @@
   transform: rotate(90deg);
 }
 
-/* Mobile Sidebar */
+/* === Mobile Sidebar === */
 .nav-mobile {
   position: fixed;
   top: 0;
@@ -82,12 +110,35 @@
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
+/* Mobile Header with logo */
 .nav-mobile-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
+}
+
+.nav-mobile-header .logo {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-mobile-header .logo img {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
+.nav-mobile-header .logo span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .nav-mobile-header svg {
@@ -96,6 +147,7 @@
   cursor: pointer;
 }
 
+/* === Mobile Links === */
 .nav-mobile-links {
   display: flex;
   flex-direction: column;
@@ -116,16 +168,13 @@
   transform: translateX(5px);
 }
 
-/* Show desktop nav on larger screens */
+/* === Responsive === */
 @media (min-width: 768px) {
   .nav-desktop {
     display: flex;
   }
 
-  .nav-toggle {
-    display: none;
-  }
-
+  .nav-toggle,
   .nav-mobile {
     display: none;
   }
@@ -140,12 +189,13 @@
     width: 100%;
     padding: 2rem 1.2rem;
   }
-}
-* {
-  box-sizing: border-box;
-}
 
-body {
-  -webkit-text-size-adjust: 100%;
-}
+  .logo img {
+    height: 26px;
+    width: 26px;
+  }
 
+  .logo span {
+    font-size: 0.95rem;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../assets/tiger.png'; // ✅ Correct path
 import './css/Header.css';
 
 const navItems = ['home', 'about', 'resume', 'skills', 'projects', 'contact'];
@@ -18,7 +19,6 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent scrolling when mobile nav is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
@@ -28,7 +28,8 @@ const Header = () => {
       <header className="header">
         <div className="header-container">
           <a href="#home" className="logo">
-            PRANAV ESWAR
+            <img src={logo} alt="Logo" className="logo-img" />
+            <span className="logo-text">PRANAV ESWAR</span>
           </a>
 
           <nav className="nav-desktop">
@@ -55,8 +56,13 @@ const Header = () => {
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
           >
             <div className="nav-mobile-header">
+              <a href="#home" className="logo" onClick={closeNav}>
+                <img src={logo} alt="Logo" className="logo-img" />
+                <span className="logo-text">PRANAV ESWAR</span>
+              </a>
               <FaTimes onClick={closeNav} />
             </div>
+
             <div className="nav-mobile-links">
               {navItems.map((item) => (
                 <a key={item} href={`#${item}`} onClick={closeNav}>
