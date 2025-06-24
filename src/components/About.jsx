@@ -8,7 +8,7 @@ const aboutDetails = [
   {
     label: 'Website',
     value: (
-      <a href="https://pranaveswar.github.io" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/pranav1495?tab=repositories" target="_blank" rel="noopener noreferrer">
         pranaveswar.github.io
       </a>
     ),
