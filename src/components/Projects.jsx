@@ -69,7 +69,7 @@ const Projects = () => {
                     loop={1}
                     cursor
                     cursorStyle="_"
-                    typeSpeed={30}
+                    typeSpeed={50}
                     deleteSpeed={0}
                     delaySpeed={1000}
                   />

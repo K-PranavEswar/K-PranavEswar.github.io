@@ -42,7 +42,7 @@ const Contact = () => {
     <section id="contact" className="contact-section">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
-          <h2>Contact</h2>
+          <h2>Let's Communicate!</h2>
         </div>
 
         <div className="row mt-1">

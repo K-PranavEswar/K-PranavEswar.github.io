@@ -135,12 +135,29 @@
 .hero-scroll-wrapper {
   scrollbar-width: none; /* Firefox */
 }
+
+/* Folder Block Styling */
 .folder-block {
   margin-top: 2rem;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   padding: 1.5rem;
   background-color: #f9fafb;
+
+  /* Animation */
+  opacity: 0;
+  animation: fadeInProjects 3s ease-in-out forwards;
+}
+
+@keyframes fadeInProjects {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .folder-header {
