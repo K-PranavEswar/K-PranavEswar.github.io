@@ -1,39 +1,45 @@
-/* Sticky transparent header */
+/* Sticky full-width transparent header */
 .header {
   position: sticky;
-  top: 0%;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  margin:0%;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background-position: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 0;
 }
 
+/* Header container stretches full width */
 .header-container {
-  max-width: 500x;
-  margin:0px;
-  padding: 1.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1.2rem;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Branding */
+/* Branding (logo) on the left */
 .logo {
-  font-size: 1.4rem;
-  font-weight: 700px;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #fdfdfd;
   text-decoration: none;
   white-space: nowrap;
+  padding: 0;
+  margin: 0;
 }
-
 
 .logo:hover {
   color: #2563eb;
 }
 
-/* Desktop links */
+/* Desktop nav links */
 .nav-desktop {
   display: none;
 }
@@ -51,12 +57,11 @@
   color: #2563eb;
 }
 
-/* Hamburger icon */
+/* Hamburger icon on the right */
 .nav-toggle {
   font-size: 1.8rem;
   cursor: pointer;
   color: #ffffff;
-  z-index: 1100;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -65,11 +70,11 @@
   transform: rotate(90deg);
 }
 
-/* Mobile sidebar */
+/* Mobile Sidebar */
 .nav-mobile {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 270px;
   height: 100vh;
   background-color: #0d1117;
@@ -111,7 +116,7 @@
   transform: translateX(5px);
 }
 
-/* Responsive Styles */
+/* Show desktop nav on larger screens */
 @media (min-width: 768px) {
   .nav-desktop {
     display: flex;
@@ -126,15 +131,14 @@
   }
 }
 
-/* ✅ Zoom-out for screens ≤ 480px */
 @media (max-width: 480px) {
   .header-container {
-    transform: scale(0.94);
-    transform-origin: top center;
+    padding: 0.8rem 1rem;
   }
 
   .nav-mobile {
-    transform: scale(0.94);
-    transform-origin: left top;
+    width: 100%;
+    padding: 2rem 1.2rem;
   }
 }
+

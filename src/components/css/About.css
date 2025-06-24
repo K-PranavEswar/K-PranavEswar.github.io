@@ -16,7 +16,7 @@ html, body {
 
 /* About Section Layout */
 .about-section {
-  padding: 6rem 2rem 6rem;
+  padding: 6rem 2rem;
   display: flex;
   justify-content: center;
 }
@@ -45,15 +45,13 @@ html, body {
   display: block;
   height: 2px;
   width: 60px;
-  text-align: center;
   background-color: #2563eb;
   margin-top: 0.5rem;
   margin-left: auto;
   margin-right: auto;
 }
 
-
-/* Image Wrapper */
+/* Image Styling */
 .about-image-wrapper {
   width: 100%;
   max-width: 300px;
@@ -76,15 +74,15 @@ html, body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Text Area */
-.about.content h3 {
-  font-size: 28px;
-  font-weight: 700;
+/* Text Section */
+.about-content h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
   color: #728394;
   margin-bottom: 1.4rem;
 }
 
-.about.content p {
+.about-content p {
   color: #333;
   font-size: 1.05rem;
   line-height: 1.9;
@@ -92,71 +90,49 @@ html, body {
   margin-bottom: 1.4rem;
 }
 
-.about.content p:last-child {
+.about-content p:last-child {
   margin-bottom: 0;
 }
 
-/* Toggle Block Grid */
-.toggle-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+/* Arrow Style Detail List */
+.arrow-details-list {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #1f2937;
 }
 
-.toggle-block {
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.toggle-block:hover {
-  background-color: #f0f8ff;
-}
-
-.toggle-header {
+.arrow-detail {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
+}
+
+.arrow-symbol {
   color: #2563eb;
   font-weight: 600;
+  margin-right: 0.5rem;
 }
 
-.toggle-header i {
-  font-size: 18px;
-  margin-right: 10px;
-  color: #0563bb;
-}
-
-.chevron-icon {
-  transition: transform 0.3s ease;
-}
-
-.chevron-icon.rotated {
-  transform: rotate(180deg);
-}
-
-.toggle-content {
-  margin-top: 0.75rem;
+.arrow-label {
+  font-weight: 600;
   color: #111827;
-  font-size: 0.95rem;
-  word-break: break-word;
+  margin-right: 0.4rem;
 }
 
-.toggle-content a {
+.arrow-value a {
   color: #2563eb;
   text-decoration: none;
 }
 
-.toggle-content a:hover {
+.arrow-value a:hover {
   text-decoration: underline;
 }
 
-/* Horizontal Scroll Ticker */
+/* Scroll Text Ticker (Optional) */
 .bottom-scroll {
   position: fixed;
   bottom: 0;
@@ -189,7 +165,7 @@ html, body {
 /* Responsive Styles */
 @media (max-width: 991.98px) {
   .about-section {
-    padding: 3rem 1rem 6rem;
+    padding: 3rem 1rem;
   }
 
   .about-grid {
@@ -207,17 +183,24 @@ html, body {
     margin: 0 auto;
   }
 
-  .about.content h3 {
+  .about-content h3 {
     font-size: 1.2rem;
     text-align: center;
   }
 
-  .toggle-grid {
-    grid-template-columns: 1fr;
-  }
-
   .scroll-text {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-content {
+    text-align: center;
+  }
+
+  .arrow-detail {
+    justify-content: left;
+    text-align: left;
   }
 }
 
@@ -231,14 +214,5 @@ html, body {
 
   html, body {
     overflow-x: hidden;
-  }
-}
-@media (max-width: 640px) {
-  .about.content {
-    text-align: center;
-  }
-
-  .toggle-grid {
-    justify-content: center;
   }
 }

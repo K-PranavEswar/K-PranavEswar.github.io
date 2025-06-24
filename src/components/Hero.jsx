@@ -19,7 +19,7 @@ const Hero = () => {
     >
       <div className="hero-overlay" />
 
-      <div className="container hero-content d-flex flex-column justify-content-center align-items-center text-center">
+      <div className="container-fluid px-0 hero-content d-flex flex-column justify-content-center align-items-center text-center">
         <motion.h1
           className="fs-1 fw-bold"
           initial={{ y: -30, opacity: 0 }}
