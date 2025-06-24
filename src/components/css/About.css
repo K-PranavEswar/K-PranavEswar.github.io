@@ -32,13 +32,26 @@ html, body {
 
 /* Heading */
 .about-section h2 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #2563eb;
-  line-height: 1.4;
-  margin-bottom: 1.2rem;
-  text-align: left;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
 }
+
+.about-section h2::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 60px;
+  text-align: center;
+  background-color: #2563eb;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /* Image Wrapper */
 .about-image-wrapper {
@@ -218,5 +231,14 @@ html, body {
 
   html, body {
     overflow-x: hidden;
+  }
+}
+@media (max-width: 640px) {
+  .about.content {
+    text-align: center;
+  }
+
+  .toggle-grid {
+    justify-content: center;
   }
 }

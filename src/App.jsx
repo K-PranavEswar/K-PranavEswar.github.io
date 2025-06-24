@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
+import Resume from './components/Resume';
+import About from './components/About';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
 
 // Animation on Scroll
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import About from './components/About';
 
 function App() {
   useEffect(() => {
@@ -30,12 +30,16 @@ function App() {
           <About />
         </section>
 
-        <section id="projects" data-aos="fade-up" className="mt-16">
-          <Projects />
+        <section id="resume" data-aos="fade-up" className="mt-16">
+          <Resume />
         </section>
 
         <section id="skills" data-aos="fade-up" className="mt-16">
           <Skills />
+        </section>
+
+        <section id="projects" data-aos="fade-up" className="mt-16">
+          <Projects />
         </section>
 
         <section id="contact" data-aos="fade-up" className="mt-16">
@@ -46,6 +50,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

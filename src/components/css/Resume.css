@@ -1,0 +1,188 @@
+.resume-section {
+  padding: 4rem 1.5rem;
+  background-color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.resume-title-block {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.resume-main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #374151;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.resume-main-heading::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 60px;
+  background-color: #2563eb;
+  margin: 0.5rem auto 0;
+}
+
+.resume-intro {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.8;
+}
+
+.resume-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 3rem 0 2rem;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.resume-timeline {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.resume-point {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin-top: 0;
+  left: 14px;
+  flex-shrink: 0;
+}
+
+.resume-point::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  width: 2px;
+  height: calc(100% - 12px);
+  background-color: #2563eb;
+}
+
+.resume-point::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 14px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid #2563eb;
+}
+
+.resume-content {
+  padding-left: 1.5rem;
+  border-left: 2px solid #2563eb;
+  margin-left: 0.5rem;
+  flex-grow: 1;
+}
+
+.resume-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.resume-date {
+  background-color: #f1f1f1;
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  border-radius: 4px;
+}
+
+.resume-description {
+  font-style: italic;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.resume-contact-list {
+  list-style: disc;
+  padding-left: 1rem;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.resume-contact-list li {
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+}
+
+.resume-contact-list a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.resume-contact-list a:hover {
+  text-decoration: underline;
+}
+
+.resume-link {
+  font-size: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #374151;
+}
+
+.resume-link a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.resume-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .resume-section {
+    padding: 2rem 1rem;
+  }
+
+  .resume-main-heading {
+    font-size: 2rem;
+  }
+
+  .resume-intro {
+    font-size: 1rem;
+  }
+
+  .resume-heading {
+    font-size: 1.5rem;
+  }
+
+  .resume-content {
+    padding-left: 1rem;
+  }
+
+  .resume-name {
+    font-size: 1.1rem;
+  }
+
+  .resume-date {
+    font-size: 0.85rem;
+  }
+}

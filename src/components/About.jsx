@@ -48,13 +48,15 @@ const About = () => {
 
         {/* Text Content */}
         <div className="about content">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            About Me
-          </motion.h2>
+          <div className="about-heading-wrapper">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              About Me
+            </motion.h2>
+          </div>
 
           <motion.p
             className="intro-text"
