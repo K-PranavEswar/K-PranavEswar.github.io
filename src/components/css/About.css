@@ -1,64 +1,60 @@
-/* About Section Layout */
+/* === About Section === */
 .about-section {
   padding: 6rem 2rem;
   display: flex;
   justify-content: center;
+  width: 100%;
+  background-color: #f9fafb;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
-  max-width: 1400px;
+  max-width: 1280px;
   width: 100%;
   align-items: start;
 }
 
-/* Section Heading (e.g., ABOUT) */
+/* === Section Heading (global use) === */
 .about-section h2 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #374151;
   margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
   text-align: center;
+  position: relative;
 }
 
 .about-section h2::after {
   content: '';
-  display: block;
   height: 2px;
   width: 60px;
   background-color: #2563eb;
-  margin-top: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0.5rem auto 0;
+  display: block;
 }
 
-/* "Myself!" Heading */
+/* === "Myself!" Heading === */
 .about-content h2 {
-  position: relative;
-  display: inline-block;
   font-size: 2rem;
   margin-bottom: 20px;
   color: #333;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
 }
 
 .about-content h2::after {
   content: '';
-  display: block;
   width: 60px;
   height: 3px;
   margin: 8px auto 0;
   background: linear-gradient(to right, transparent 0%, #007bff 50%, transparent 100%);
   border-radius: 3px;
+  display: block;
 }
 
-/* Image Styling */
+/* === Image Styling === */
 .about-image-wrapper {
   width: 100%;
   max-width: 300px;
@@ -81,7 +77,7 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Text Section */
+/* === Content Styling === */
 .about-content h3 {
   font-size: 1.75rem;
   font-weight: 600;
@@ -102,7 +98,7 @@
   margin-bottom: 0;
 }
 
-/* Arrow Style Detail List */
+/* === Arrow Detail List === */
 .arrow-details-list {
   margin: 2rem 0;
   display: flex;
@@ -140,7 +136,7 @@
   text-decoration: underline;
 }
 
-/* Scroll Text Ticker (Optional) */
+/* === Scroll Text Ticker (Optional) === */
 .bottom-scroll {
   position: fixed;
   bottom: 0;
@@ -170,10 +166,10 @@
   }
 }
 
-/* Responsive Styles */
+/* === Responsive === */
 @media (max-width: 991.98px) {
   .about-section {
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .about-grid {
@@ -181,8 +177,7 @@
     gap: 2rem;
   }
 
-  .about-section h2 {
-    font-size: 2rem;
+  .about-content {
     text-align: center;
   }
 
@@ -192,8 +187,7 @@
   }
 
   .about-content h3 {
-    font-size: 1.2rem;
-    text-align: center;
+    font-size: 1.4rem;
   }
 
   .scroll-text {
@@ -202,25 +196,22 @@
 }
 
 @media (max-width: 640px) {
-  .about-content {
-    text-align: center;
-  }
-
   .arrow-detail {
-    justify-content: left;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  #root {
-    transform: scale(0.94);
-    transform-origin: top center;
-    width: 106%;
-    transition: transform 0.3s ease-in-out;
+  .about-section {
+    padding: 3rem 1rem;
   }
 
-  html, body {
-    overflow-x: hidden;
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  .arrow-details-list {
+    font-size: 0.9rem;
   }
 }

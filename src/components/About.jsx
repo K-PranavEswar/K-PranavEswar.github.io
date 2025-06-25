@@ -37,7 +37,7 @@ const About = () => {
           <img src={pranavImage} alt="Pranav Eswar" className="about-photo" />
         </motion.div>
 
-        {/* Text */}
+        {/* Content */}
         <div className="about-content">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -65,7 +65,6 @@ const About = () => {
             Programmer & Web Developer
           </motion.h3>
 
-          {/* Arrow Style Details */}
           <div className="arrow-details-list">
             {aboutDetails.map((item, index) => (
               <motion.div
@@ -73,10 +72,10 @@ const About = () => {
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
               >
-                <span className="arrow-symbol">&gt;</span>{' '}
-                <span className="arrow-label">{item.label}:</span>{' '}
+                <span className="arrow-symbol">&gt;</span>
+                <span className="arrow-label">{item.label}:</span>
                 <span className="arrow-value">{item.value}</span>
               </motion.div>
             ))}

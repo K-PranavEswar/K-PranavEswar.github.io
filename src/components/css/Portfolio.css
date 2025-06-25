@@ -1,7 +1,9 @@
 /* Portfolio Section Styles */
 .portfolio-section {
-  padding: 0;
+  padding: 2rem 1rem;
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .portfolio-title {
@@ -11,18 +13,19 @@
   text-align: center;
   text-decoration: underline #83b3ff;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: 48px;
+  margin-bottom: 3rem;
 }
 
 /* Responsive Grid Layout */
 .portfolio-grid {
   display: grid;
-  gap: 24px;
+  gap: 1.5rem;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 1rem;
   justify-content: center;
   align-items: stretch;
+  width: 100%;
 }
 
 /* Desktop: 4 per row */
@@ -48,6 +51,11 @@
   .portfolio-title {
     font-size: 2rem;
   }
+
+  .portfolio-item {
+    max-width: 90vw;
+    margin: 0 auto;
+  }
 }
 
 /* Image Card */
@@ -70,18 +78,19 @@
 .portfolio-image {
   width: 100%;
   height: auto;
-  display: block;
   object-fit: cover;
   aspect-ratio: 3 / 4;
+  display: block;
   border-radius: 14px;
   transition: transform 0.35s ease;
 }
 
+/* Hover Zoom */
 .portfolio-item:hover .portfolio-image {
   transform: scale(1.03);
 }
 
-/* Tap feedback */
+/* Tap Feedback */
 .portfolio-item:active {
   animation: bubble 0.4s ease-out forwards;
 }

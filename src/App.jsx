@@ -13,7 +13,7 @@ import Scroll from './components/Scroll';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './App.css';
+import './styles.css';
 
 function App() {
   useEffect(() => {
