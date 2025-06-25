@@ -68,6 +68,11 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   cursor: pointer;
+
+  /* Performance Boost */
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .portfolio-item:hover {
@@ -83,6 +88,9 @@
   display: block;
   border-radius: 14px;
   transition: transform 0.35s ease;
+
+  /* Performance Boost */
+  will-change: transform;
 }
 
 /* Hover Zoom */
