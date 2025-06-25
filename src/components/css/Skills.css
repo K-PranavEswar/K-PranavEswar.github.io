@@ -10,10 +10,20 @@
   color: #000000;
   text-align: center;
   margin-bottom: 2rem;
-  text-decoration: underline #83b3ff;
   font-family: 'Poppins', sans-serif;
+  position: relative;
+  display: inline-block;
 }
 
+.skills-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 8px auto 0;
+  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
+  border-radius: 3px;
+}
 
 .skills-grid {
   display: grid;

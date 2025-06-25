@@ -40,7 +40,7 @@ const Resume = () => {
 
       {/* Summary */}
       <AnimatedSection>
-        <h3 className="resume-heading">Summary</h3>
+        <h3 className="resume-subheading">Summary</h3>
         <div className="resume-timeline">
           <div className="resume-point" />
           <div className="resume-content">
@@ -61,7 +61,7 @@ const Resume = () => {
 
       {/* Experience */}
       <AnimatedSection>
-        <h3 className="resume-heading">Experience</h3>
+        <h3 className="resume-subheading">Experience</h3>
 
         <div className="resume-timeline">
           <div className="resume-point" />
@@ -101,7 +101,7 @@ const Resume = () => {
 
       {/* Education */}
       <AnimatedSection>
-        <h3 className="resume-heading">Education</h3>
+        <h3 className="resume-subheading">Education</h3>
 
         <div className="resume-timeline">
           <div className="resume-point" />

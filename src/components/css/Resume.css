@@ -17,15 +17,38 @@
   position: relative;
   display: inline-block;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .resume-main-heading::after {
   content: '';
   display: block;
-  height: 2px;
   width: 60px;
-  background-color: #2563eb;
-  margin: 0.5rem auto 0;
+  height: 3px;
+  margin: 8px auto 0;
+  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
+  border-radius: 3px;
+}
+
+/* Reusable for Summary, Experience, Education */
+.resume-subheading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #374151;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+
+.resume-subheading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 8px auto 0;
+  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
+  border-radius: 3px;
 }
 
 .resume-intro {
@@ -34,16 +57,6 @@
   font-size: 1.05rem;
   color: #374151;
   line-height: 1.8;
-}
-
-.resume-heading {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #374151;
-  margin: 3rem 0 2rem;
-  border-bottom: 2px solid #2563eb;
-  padding-bottom: 0.5rem;
-  display: inline-block;
 }
 
 .resume-timeline {
@@ -166,12 +179,12 @@
     font-size: 2rem;
   }
 
-  .resume-intro {
-    font-size: 1rem;
+  .resume-subheading {
+    font-size: 1.5rem;
   }
 
-  .resume-heading {
-    font-size: 1.5rem;
+  .resume-intro {
+    font-size: 1rem;
   }
 
   .resume-content {

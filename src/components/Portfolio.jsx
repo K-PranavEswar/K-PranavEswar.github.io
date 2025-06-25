@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './css/Portfolio.css';
 
 // Import all portrait images
@@ -18,7 +19,6 @@ import portrait13 from '../assets/prithviraj.jpg';
 import portrait14 from '../assets/ramchrn.jpg';
 import portrait15 from '../assets/ranbir.jpg';
 
-// Artworks array
 const artworks = [
   { src: portrait1, alt: 'Dhanush Portrait' },
   { src: portrait2, alt: 'Eagle Drawing' },
@@ -43,12 +43,16 @@ const Portfolio = () => {
       <h2 className="portfolio-title">My Portfolio</h2>
       <div className="portfolio-grid">
         {artworks.map((art, index) => (
-          <a
+          <motion.a
             href={art.src}
             target="_blank"
             rel="noopener noreferrer"
             key={index}
             className="portfolio-item"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 3, ease: 'easeOut' }}
           >
             <img
               src={art.src}
@@ -56,7 +60,7 @@ const Portfolio = () => {
               className="portfolio-image"
               loading="lazy"
             />
-          </a>
+          </motion.a>
         ))}
       </div>
     </section>
