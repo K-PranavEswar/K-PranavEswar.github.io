@@ -5,15 +5,15 @@ import Resume from './components/Resume';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Portfolio from './components/Portfolio'; // ✅ Renamed import
+import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Scroll from './components/Scroll';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './App.css';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './App.css';
 
 function App() {
   useEffect(() => {
@@ -21,10 +21,10 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen font-sans text-gray-800">
+    <div className="app-wrapper">
       <Header />
 
-      <main className="flex-1 w-full max-w-7xl px-4 sm:px-6 lg:px-10 py-10 mx-auto">
+      <main className="app-main">
         <section id="home" data-aos="fade-up">
           <Hero />
         </section>
