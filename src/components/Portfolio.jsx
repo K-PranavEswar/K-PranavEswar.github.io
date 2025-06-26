@@ -17,7 +17,7 @@ const artworks = [
 const Portfolio = () => {
   return (
     <section className="portfolio-section" id="portfolio">
-      <h2 className="portfolio-title">My Portfolio</h2>
+      <h2 className="portfolio-title">Gallery</h2>
       <p className="portfolio-subtext">
         <em>Below are a few of my finest hand-drawn portraits — where every stroke reflects passion, precision, and personality.</em>
       </p>
