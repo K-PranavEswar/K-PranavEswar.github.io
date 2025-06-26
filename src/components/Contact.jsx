@@ -42,7 +42,13 @@ const Contact = () => {
     <section id="contact" className="contact-section">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
-          <h2>Let's Communicate!</h2>
+          <h2 className="wave-title">
+            {"Let's Communicate!".split("").map((char, index) => (
+              <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </h2>
         </div>
 
         <div className="row mt-1">
@@ -75,7 +81,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Form */}
+          {/* Contact Form */}
           <div className="col-lg-8 mt-5 mt-lg-0">
             <form className="email-form" onSubmit={handleSubmit}>
               <div className="row">

@@ -1,12 +1,13 @@
 /* ---------------- Contact Section ---------------- */
 .contact-section {
-  padding: 80px ;
+  padding: 80px 20px;
   background-color: #f9fafb;
   text-align: center;
-
-  /* Fade-in animation */
   opacity: 0;
   animation: fadeInContact 3s ease forwards;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  overflow: hidden;
 }
 
 @keyframes fadeInContact {
@@ -20,12 +21,42 @@
   }
 }
 
-/* ---------------- Section Title ---------------- */
+/* ---------------- Section Title with Animated Underline ---------------- */
 .section-title h2 {
+  position: relative;
+  display: inline-block;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2563eb;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
   margin-bottom: 40px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background: #2563eb;
+  border-radius: 50px;
+  animation: animate-underline 1.8s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes animate-underline {
+  0%, 100% {
+    width: 50px;
+    opacity: 0.9;
+    transform: translateX(-50%) scaleX(1);
+  }
+  50% {
+    width: 80px;
+    opacity: 0.4;
+    transform: translateX(-50%) scaleX(1.4);
+  }
 }
 
 /* ---------------- Contact Info ---------------- */
@@ -88,6 +119,12 @@
   color: #ef4444;
 }
 
+.form-status {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
 /* ---------------- Submit Button ---------------- */
 button[type="submit"] {
   padding: 12px 24px;
@@ -118,16 +155,4 @@ button[type="submit"]:hover {
   button[type="submit"] {
     width: 100%;
   }
-}
-.contact-section {
-  padding: 80px 20px;
-  background-color: #f9fafb;
-  text-align: center;
-  opacity: 0;
-  animation: fadeInContact 3s ease forwards;
-
-  /* Ensure no extra height is added */
-  margin-bottom: 0;
-  padding-bottom: 0;
-  overflow: hidden;
 }

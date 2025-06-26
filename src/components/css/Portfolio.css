@@ -1,4 +1,4 @@
-/* Portfolio Section Styles */
+/* === Portfolio Section === */
 .portfolio-section {
   padding: 2rem 1rem;
   text-align: center;
@@ -7,104 +7,194 @@
 }
 
 .portfolio-title {
+  position: relative;
+  display: inline-block;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #000000;
-  text-align: center;
-  text-decoration: underline #83b3ff;
+  color: #000;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: 3rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Responsive Grid Layout */
+.portfolio-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(66,133,244,0.3), rgba(66,133,244,1), rgba(66,133,244,0.3));
+  border-radius: 50px;
+  animation: underline-glow 2s ease-in-out infinite;
+}
+
+@keyframes underline-glow {
+  0%, 100% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1.4);
+    opacity: 0.6;
+  }
+}
+
+.portfolio-subtext {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #374151;
+  margin-bottom: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === Responsive Grid Layout === */
 .portfolio-grid {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
   justify-content: center;
   align-items: stretch;
-  width: 100%;
 }
 
-/* Desktop: 4 per row */
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .portfolio-title {
+    font-size: 2.25rem;
+  }
+
+  .portfolio-subtext {
+    font-size: 1.05rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-
-/* Tablet: 3 per row */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Mobile: 1 per row */
-@media (max-width: 767px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
 
   .portfolio-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
 
-  .portfolio-item {
-    max-width: 90vw;
-    margin: 0 auto;
+  .portfolio-subtext {
+    font-size: 1.2rem;
   }
 }
 
-/* Image Card */
+/* === Portfolio Card === */
 .portfolio-item {
-  display: block;
+  position: relative;
   overflow: hidden;
   border-radius: 14px;
   background-color: #ffffff;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
   cursor: pointer;
-
-  /* Performance Boost */
   will-change: transform, box-shadow;
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
 
+/* === Image Styling === */
+.portfolio-image {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+/* === Hover Animation === */
 .portfolio-item:hover {
   transform: scale(1.01);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
-.portfolio-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 3 / 4;
-  display: block;
-  border-radius: 14px;
-  transition: transform 0.35s ease;
-
-  /* Performance Boost */
-  will-change: transform;
-}
-
-/* Hover Zoom */
 .portfolio-item:hover .portfolio-image {
   transform: scale(1.03);
 }
 
-/* Tap Feedback */
+/* === Tap Bounce Effect === */
 .portfolio-item:active {
   animation: bubble 0.4s ease-out forwards;
 }
 
 @keyframes bubble {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
   100% { transform: scale(1); }
+}
+
+/* === Overlay Styling === */
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 41, 55, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 14px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.overlay-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.overlay-plus {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* === Extra Mobile Styling === */
+@media (max-width: 480px) {
+  .portfolio-title {
+    font-size: 1.9rem;
+  }
+
+  .portfolio-subtext {
+    font-size: 1rem;
+  }
+
+  .portfolio-item {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+
+  .portfolio-image {
+    max-height: 80vh;
+  }
+
+  .overlay-title {
+    font-size: 0.9rem;
+  }
+
+  .overlay-plus {
+    font-size: 1.2rem;
+  }
 }
