@@ -1,0 +1,51 @@
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fefaf4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  z-index: 9999;
+}
+
+.loader-hint {
+  font-size: 1.2rem;
+  color: #8b5c2c;
+  margin-bottom: 10px;
+}
+
+.loader-text {
+  font-size: 3rem;
+  text-align: center;
+  color: #8b5c2c;
+  font-weight: bold;
+  margin: 0 20px;
+}
+
+.loader-text span {
+  color: #b57b36;
+}
+
+.progress-bar {
+  width: 60%;
+  height: 3px;
+  background: #d0b896;
+  margin: 30px auto 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #8b5c2c;
+  transition: width 0.2s;
+}
+
+.percent {
+  font-size: 1rem;
+  color: #8b5c2c;
+}
