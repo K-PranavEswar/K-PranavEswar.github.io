@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-inner">
         <h3>K PRANAV ESWAR</h3>
         <p className="footer-quote">
-          Passion fuels progress. Always learning, always building.
+          Learning. Building. Evolving.
         </p>
 
         {/* Social Icons */}
