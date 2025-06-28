@@ -22,7 +22,7 @@ const Loader = () => {
     <div className="loader-container">
       <p className="loader-hint">Please Wait</p>
       <h1 className="loader-text">
-        Initializing <span>Your Digital Journey...</span>
+        Initializing <span>My Website...</span>
       </h1>
       <div className="progress-bar">
         <div className="progress" style={{ width: `${progress}%` }}></div>
