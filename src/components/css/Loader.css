@@ -1,51 +1,123 @@
+/* =========================
+   Loader Container
+========================= */
 .loader-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fefaf4;
+  background: linear-gradient(135deg, #fff8ef, #fefaf4);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Georgia', serif;
   z-index: 9999;
+  animation: fadeIn 1s ease-in-out;
+  transition: opacity 0.5s ease;
 }
 
+/* =========================
+   Logo Animation
+========================= */
+.loader-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: logoBounce 1.5s ease-out, pulseGlow 2.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px #c88d3d);
+  transform-origin: center;
+}
+
+/* =========================
+   Text Styling
+========================= */
 .loader-hint {
   font-size: 1.2rem;
-  color: #8b5c2c;
+  color: #a56a2f;
   margin-bottom: 10px;
+  text-shadow: 0 0 2px #fff;
 }
 
 .loader-text {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  font-weight: bold;
   text-align: center;
   color: #8b5c2c;
-  font-weight: bold;
-  margin: 0 20px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px #fff0d5;
 }
 
 .loader-text span {
-  color: #b57b36;
+  color: #c88d3d;
 }
 
+/* =========================
+   Progress Bar
+========================= */
 .progress-bar {
   width: 60%;
-  height: 3px;
-  background: #d0b896;
+  height: 6px;
+  background: #e2d1b1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
   margin: 30px auto 10px;
   position: relative;
 }
 
 .progress {
   height: 100%;
-  background-color: #8b5c2c;
-  transition: width 0.2s;
+  background: linear-gradient(to right, #8b5c2c, #c88d3d);
+  transition: width 0.3s ease;
+  animation: shimmer 1.5s infinite linear;
+  background-size: 200% 100%;
 }
 
 .percent {
   font-size: 1rem;
   color: #8b5c2c;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes logoBounce {
+  0% {
+    transform: scale(0.7) translateY(-30px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translateY(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px #c88d3d);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #c88d3d);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

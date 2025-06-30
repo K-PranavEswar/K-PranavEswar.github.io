@@ -35,15 +35,15 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <span style={{ color: '#000' }}>I'm a </span>
-          <span style={{ color: '#2563eb', fontWeight: 'bold' }}>
+          <span style={{ color: '#000' }}>I'm </span>
+          <span style={{ color: '#0051ff', fontWeight: 'bold' }}>
             <Typewriter
               words={[
-                'BCA Graduate',
-                'Full Stack Developer',
-                'MERN Enthusiast',
-                'Artist',
-                'Gamer',
+                'a BCA Graduate',
+                'a Full Stack Developer',
+                'a MERN Enthusiast',
+                'an Artist',
+                'a Gamer',
               ]}
               loop={0}
               cursor
