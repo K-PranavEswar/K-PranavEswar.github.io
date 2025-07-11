@@ -34,7 +34,7 @@ This is my personal portfolio website showcasing my skills, projects, and artwor
 
 ## 📞 Contact
 
-📧 pranav.example@gmail.com *(replace with your email)*  
+📧 pranavartist1@gmail.com
 🔗 [LinkedIn](https://www.linkedin.com/in/k-pranav-eswar1/)
 
 ---
