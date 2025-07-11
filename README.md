@@ -9,8 +9,8 @@ This is my personal portfolio website showcasing my skills, projects, and artwor
 ## 🧑‍💼 About Me
 
 - Full Stack Developer (PHP, MERN)
-- BCA Graduate | Artist | Gamer
-- Currently working on disaster relief systems like [ReliefLink](https://github.com/pranav1495/relieflink)
+- BCA Graduate | Graphic Designer | Artist | Gamer
+- Currently working as Freelancer at Full Stack 
 
 ---
 
