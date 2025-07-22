@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../assets/tiger.png';
 import './css/Header.css';
 
-const navItems = ['home', 'about', 'resume', 'skills', 'projects','portfolio','contact'];
+const navItems = ['home', 'about', 'resume', 'skills', 'projects','certifications','gallery','contact'];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -39,6 +39,7 @@ const Hero = () => {
           <span style={{ color: '#0051ff', fontWeight: 'bold' }}>
             <Typewriter
               words={[
+                'currently pursuing MCA',
                 'a BCA Graduate',
                 'a Full Stack Developer',
                 'a MERN Enthusiast',

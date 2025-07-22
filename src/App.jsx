@@ -5,7 +5,6 @@ import Resume from './components/Resume';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Scroll from './components/Scroll';
@@ -15,6 +14,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './styles.css';
+import Portfolio from './components/Portfolio';
+import Certificates from './components/Certificates';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,8 +55,12 @@ function App() {
               <Projects />
             </section>
 
-            <section id="portfolio" data-aos="fade-up" className="mt-16">
-              <Portfolio />
+            <section id="certifications" data-aos="fade-up" className="mt-16">
+              <Certificates/>
+            </section>
+
+            <section id="gallery" data-aos="fade-up" className="mt-16">
+              <Portfolio/>
             </section>
 
             <section id="contact" data-aos="fade-up" className="mt-16">

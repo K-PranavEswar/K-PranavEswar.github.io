@@ -100,39 +100,50 @@ const Resume = () => {
       </AnimatedSection>
 
       {/* Education */}
-      <AnimatedSection>
-        <h3 className="resume-subheading">Education</h3>
+     {/* Education */}
+<AnimatedSection>
+  <h3 className="resume-subheading">Education</h3>
 
-        <div className="resume-timeline">
-          <div className="resume-point" />
-          <div className="resume-content">
-            <h4 className="resume-name">BACHELOR OF COMPUTER APPLICATIONS<br />UNIVERSITY OF KERALA</h4>
-            <div className="resume-date"><strong>2022 – 2025</strong></div>
-            <p className="resume-description">Christ College, Vizhinjam</p>
-            <p className="resume-description"><strong>CGPA:</strong> 7.9 / 10</p>
-          </div>
-        </div>
+  <div className="resume-timeline">
+    <div className="resume-point" />
+    <div className="resume-content">
+      <h4 className="resume-name">MASTER'S OF COMPUTER APPLICATIONS<br />KTU UNIVERSITY</h4>
+      <div className="resume-date"><strong>2025 – Present</strong></div>
+      <p className="resume-description">Lourdes Matha College Of Science And Technology</p>
+    </div>
+  </div>
 
-        <div className="resume-timeline">
-          <div className="resume-point" />
-          <div className="resume-content">
-            <h4 className="resume-name">CLASS 12 – CBSE</h4>
-            <div className="resume-date"><strong>2020 – 2022</strong></div>
-            <p className="resume-description">Chinmaya Vidyalaya, Attukal</p>
-            <p className="resume-description"><strong>Grade:</strong> 66%</p>
-          </div>
-        </div>
+  <div className="resume-timeline">
+    <div className="resume-point" />
+    <div className="resume-content">
+      <h4 className="resume-name">BACHELOR OF COMPUTER APPLICATIONS<br />UNIVERSITY OF KERALA</h4>
+      <div className="resume-date"><strong>2022 – 2025</strong></div>
+      <p className="resume-description">Christ College, Vizhinjam</p>
+      <p className="resume-description"><strong>CGPA:</strong> 7.9 / 10</p>
+    </div>
+  </div>
 
-        <div className="resume-timeline">
-          <div className="resume-point" />
-          <div className="resume-content">
-            <h4 className="resume-name">CLASS 10 – CBSE</h4>
-            <div className="resume-date"><strong>2019 – 2020</strong></div>
-            <p className="resume-description">Chinmaya Vidyalaya, Attukal</p>
-            <p className="resume-description"><strong>Grade:</strong> 78%</p>
-          </div>
-        </div>
-      </AnimatedSection>
+  <div className="resume-timeline">
+    <div className="resume-point" />
+    <div className="resume-content">
+      <h4 className="resume-name">CLASS 12 – CBSE</h4>
+      <div className="resume-date"><strong>2020 – 2022</strong></div>
+      <p className="resume-description">Chinmaya Vidyalaya, Attukal</p>
+      <p className="resume-description"><strong>Grade:</strong> 66%</p>
+    </div>
+  </div>
+
+  <div className="resume-timeline">
+    <div className="resume-point" />
+    <div className="resume-content">
+      <h4 className="resume-name">CLASS 10 – CBSE</h4>
+      <div className="resume-date"><strong>2019 – 2020</strong></div>
+      <p className="resume-description">Chinmaya Vidyalaya, Attukal</p>
+      <p className="resume-description"><strong>Grade:</strong> 78%</p>
+    </div>
+  </div>
+</AnimatedSection>
+
 
       {/* LinkedIn */}
       <p className="resume-link">

@@ -1,0 +1,109 @@
+/* Certificates Section */
+.certificates-section {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(to bottom right, #fdfdfd, #f0f4ff);
+  color: #1a1a1a;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Section Title */
+.certificates-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cert-icon {
+  color: #4d94ff;
+  font-size: 1.8rem;
+}
+
+/* Grid Layout */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Certificate Card */
+.certificate-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+}
+
+.certificate-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Certificate Details */
+.cert-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.cert-issuer,
+.cert-date {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+/* View Certificate Button */
+.cert-link {
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.3rem;
+  background: #4d94ff;
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(77, 148, 255, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cert-link:hover {
+  background-color: #ff3b38;
+  transform: scale(1.05);
+}
+
+/* Mobile Styling */
+@media (max-width: 480px) {
+  .certificates-title {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .certificate-card {
+    padding: 1.2rem;
+  }
+
+  .cert-title {
+    font-size: 1.1rem;
+  }
+
+  .cert-link {
+    width: 100%;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+  }
+}
