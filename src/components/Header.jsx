@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../assets/tiger.png';
+import logo from '../assets/picon.png';
 import './css/Header.css';
 
 const navItems = ['home', 'about', 'resume', 'skills', 'projects','certifications','gallery','contact'];

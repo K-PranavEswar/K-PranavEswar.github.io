@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './css/Loader.css';
-import tigerLogo from '../assets/tiger.png';
+import tigerLogo from '../assets/picon.png';
 
 const Loader = () => {
   const [progress, setProgress] = useState(0);
