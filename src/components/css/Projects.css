@@ -1,65 +1,70 @@
+/* === Projects Section === */
 .projects-section {
-  padding: 0;
-  background-color: #ffffff;
+  padding: 6rem 2rem;
+  background-color: #111827; /* Dark theme background */
   text-align: center;
 }
 
-.projects-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000000;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-family: 'Poppins', sans-serif;
-  position: relative;
-  display: inline-block;
-}
+/* Main title "Projects" uses the global .section-title class */
 
-.projects-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 8px auto 0;
-  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
-  border-radius: 3px;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+/* Folder Block Styling */
+.folder-block {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 2.5rem auto 0;
+  border: 1px solid #374151; /* Darker border */
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: #1f2937; /* Lighter dark background */
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 12px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #374151;
+}
+
+.folder-icon {
+  font-size: 1.5rem;
+  color: #22c55e; /* Green accent */
+}
+
+.folder-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Projects Grid & Cards */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .project-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #374151; /* Card background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
   text-align: left;
   cursor: pointer;
+  border-left: 4px solid transparent;
+  overflow: hidden; /* Important for the details slide-down effect */
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.project-logo {
-  max-width: 100px;
-  margin-bottom: 1rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  transform: translateX(5px);
+  border-left-color: #22c55e;
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 1.5rem;
 }
 
 .project-info {
@@ -68,124 +73,59 @@
   gap: 1rem;
 }
 
+.project-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: #ffffff;
+  padding: 4px;
+}
+
 .project-title {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #111827;
+  color: #ffffff;
+}
+
+.toggle-arrow {
+  color: #9ca3af;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card.active .toggle-arrow {
+  transform: rotate(180deg);
+  color: #22c55e;
+}
+
+/* Project Details (Accordion Content) */
+.project-details {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: #d1d5db;
+  border-top: 1px solid #4b5563;
+  margin: 0.5rem 1.5rem 0;
 }
 
 .project-description {
   font-size: 1rem;
-  color: #374151;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-top: 1rem;
-  min-height: 4rem;
 }
 
-.blinking-arrow {
-  color: #2563eb;
-  font-size: 1.4rem;
-  animation: blink 1.3s infinite;
+.project-members {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
 }
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+.project-members strong {
+  color: #ffffff;
 }
 
-/* Scroll position offset for sticky nav */
-#projects {
-  scroll-margin-top: 80px;
-}
-
-/* Responsive Breakpoints */
+/* Responsive */
 @media (max-width: 768px) {
-  .projects-title {
-    font-size: 2rem;
-  }
-
-  .project-title {
-    font-size: 1.25rem;
-  }
-
-  .project-description {
-    font-size: 0.95rem;
-  }
-
-  .blinking-arrow {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .projects-title {
-    font-size: 1.6rem;
-  }
-
-  .project-card {
-    padding: 18px;
-  }
-
-  .project-title {
-    font-size: 1.1rem;
-  }
-
-  .project-description {
-    font-size: 0.9rem;
-    min-height: auto;
-  }
-
-  .blinking-arrow {
-    font-size: 1rem;
-  }
-}
-
-/* Hide scrollbar for custom wrappers */
-.hero-scroll-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.hero-scroll-wrapper {
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Folder Block Styling */
-.folder-block {
-  margin-top: 2rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  background-color: #f9fafb;
-  opacity: 0;
-  animation: fadeInProjects 3s ease-in-out forwards;
-}
-
-@keyframes fadeInProjects {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.folder-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  gap: 10px;
-}
-
-.folder-icon {
-  font-size: 1.5rem;
-  color: #2563eb;
-}
-
-.folder-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #111827;
+  .folder-title { font-size: 1.15rem; }
+  .project-title { font-size: 1.1rem; }
+  .project-header, .project-details { padding: 1rem; }
 }

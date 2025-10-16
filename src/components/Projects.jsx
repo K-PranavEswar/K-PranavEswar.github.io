@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import './css/Projects.css';
 import { FaAngleDown, FaFolderOpen } from 'react-icons/fa';
@@ -6,36 +7,36 @@ import { FaAngleDown, FaFolderOpen } from 'react-icons/fa';
 // Project Logos
 import chrisAccessLogo from '../assets/favicon.ico';
 import medinetLogo from '../assets/mednet.png';
-import reliefLinkLogo from '../assets/relieflink.png'; // Make sure this image exists
+import reliefLinkLogo from '../assets/relieflink.png';
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // BCA Projects
   const bcaProjects = [
     {
       title: 'ChrisAccessEdge',
       logo: chrisAccessLogo,
-      description:
-        'The Visitor Pass Management Mechanism is a full-stack Java-based system designed to digitize and streamline visitor management at Christ College Institution. Developed using Spring Boot, React.js, Node.js, JavaScript, HTML, and CSS, this system replaces traditional manual visitor logs with an efficient and secure digital solution.',
-      members: ['Sivapradeesh M', 'Parvathy M Haima'],
+      description: 'A full-stack Visitor Pass Management System designed to digitize and streamline visitor logs at Christ College. Built with Spring Boot, React, and Node.js for an efficient and secure solution.',
+      members: [
+        { name: 'Sivapradeesh M', linkedinUrl: 'https://www.linkedin.com/in/sivapradeesh-m-a06961309/' },
+        { name: 'Parvathy M Haima' },
+      ],
     },
     {
       title: 'MEDINET-GPS',
       logo: medinetLogo,
-      description:
-        'Medinet - GPS is a real-time mobile and web application designed to assist accident patients by connecting them quickly to nearby hospitals with the required medical facilities. It enables ambulances to navigate efficiently, reduces traffic congestion through smart coordination, and ensures the patient reaches the correct hospital quickly — ultimately helping save lives.',
-      members: ['Joshua J'],
+      description: 'A real-time app to assist accident patients by quickly connecting them to nearby hospitals. It enables efficient ambulance navigation and ensures patients reach the correct facility promptly to help save lives.',
+      members: [
+        { name: 'Joshua J', linkedinUrl: 'https://www.linkedin.com/in/joshua-j-040273331/' },
+      ],
     },
   ];
 
-  // Freelance Projects
   const freelanceProjects = [
     {
       title: 'ReliefLink',
       logo: reliefLinkLogo,
-      description:
-        'ReliefLink is a real-time disaster relief and volunteer coordination platform that enables public users to request help, volunteers to manage resources, and admins to monitor disaster zones. Built with PHP, MySQL, AJAX, and Bootstrap, it includes a live chat system, role-based dashboards, and SMS/email alerts to streamline disaster response efforts effectively.',
+      description: 'A real-time disaster relief and volunteer coordination platform. It enables the public to request help, volunteers to manage resources, and admins to monitor disaster zones, streamlining response efforts.',
     },
   ];
 
@@ -44,77 +45,112 @@ const Projects = () => {
   };
 
   const renderProjects = (projects, startIndex = 0) =>
-    projects.map((project, index) => (
-      <div
-        className={`project-card ${
-          activeIndex === index + startIndex ? 'active' : ''
-        }`}
-        key={index + startIndex}
-        onClick={() => handleToggle(index + startIndex)}
-      >
-        <div className="project-header">
-          <div className="project-info">
-            {project.logo && (
-              <img
-                src={project.logo}
-                alt={`${project.title} logo`}
-                className="project-logo"
-              />
-            )}
-            <h3 className="project-title">{project.title}</h3>
-          </div>
+    projects.map((project, index) => {
+      const currentIndex = index + startIndex;
+      const isActive = activeIndex === currentIndex;
 
-          {activeIndex === index + startIndex && (
-            <FaAngleDown className="blinking-arrow" />
-          )}
-        </div>
+      return (
+        <motion.div
+          layout
+          className={`project-card ${isActive ? 'active' : ''}`}
+          key={currentIndex}
+          onClick={() => handleToggle(currentIndex)}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <motion.div layout className="project-header">
+            <div className="project-info">
+              {project.logo && <img src={project.logo} alt={`${project.title} logo`} className="project-logo" />}
+              <h3 className="project-title">{project.title}</h3>
+            </div>
+            <FaAngleDown className="toggle-arrow" />
+          </motion.div>
 
-        {activeIndex === index + startIndex && (
-          <div className="project-details">
-            <p className="project-description">
-              <Typewriter
-                words={[project.description]}
-                loop={1}
-                cursor
-                cursorStyle="_"
-                typeSpeed={50}
-                deleteSpeed={0}
-                delaySpeed={1000}
-              />
-            </p>
-            {project.members && (
-              <p className="project-members">
-                <strong>Team Members:</strong> {project.members.join(', ')}
-              </p>
+          <AnimatePresence>
+            {isActive && (
+              <motion.div
+                className="project-details"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <p className="project-description">
+                  <Typewriter
+                    words={[project.description]}
+                    loop={1}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={30}
+                  />
+                </p>
+                {/* ✅ CHANGED: Logic to render member names as links */}
+                {project.members && (
+                  <div className="project-members">
+                    <strong>Team Members: </strong>
+                    {project.members.map((member, i) => (
+                      <span key={i}>
+                        <a
+                          href={member.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()} // Prevents the card from closing when a link is clicked
+                        >
+                          {member.name}
+                        </a>
+                        {i < project.members.length - 1 ? ', ' : ''}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
             )}
-          </div>
-        )}
-      </div>
-    ));
+          </AnimatePresence>
+        </motion.div>
+      );
+    });
 
   return (
     <section className="projects-section" id="projects">
-      <h2 className="projects-title">Projects</h2>
+      <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        My Projects
+      </motion.h2>
 
-      {/* Folder: BCA Projects */}
-      <div className="folder-block">
+      <motion.div
+        className="folder-block"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <div className="folder-header">
           <FaFolderOpen className="folder-icon" />
           <h3 className="folder-title">BCA Projects</h3>
         </div>
         <div className="projects-grid">{renderProjects(bcaProjects, 0)}</div>
-      </div>
+      </motion.div>
 
-      {/* Folder: Freelance Projects */}
-      <div className="folder-block">
+      <motion.div
+        className="folder-block"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <div className="folder-header">
           <FaFolderOpen className="folder-icon" />
           <h3 className="folder-title">Freelance Projects</h3>
         </div>
-        <div className="projects-grid">
-          {renderProjects(freelanceProjects, bcaProjects.length)}
-        </div>
-      </div>
+        <div className="projects-grid">{renderProjects(freelanceProjects, bcaProjects.length)}</div>
+      </motion.div>
     </section>
   );
 };

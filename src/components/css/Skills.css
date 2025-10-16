@@ -1,92 +1,164 @@
+/* === Skills Section === */
 .skills-section {
-  padding: 60px 20px;
-  background-color: #ffffff;
+  padding: 6rem 2rem;
+  background-color: #111827; /* Dark theme background */
   text-align: center;
 }
-
+/* Professional Animated Section Title */
 .skills-title {
-  font-size: 2.5rem;
+  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 700;
-  color: #000;
+  color: #ffffff;
   font-family: 'Poppins', sans-serif;
+  text-align: center;
   margin-bottom: 3rem;
   position: relative;
-  display: inline-block;
+  /* This ensures the child spans don't overflow during animation */
+  overflow: hidden; 
 }
 
+/* Underline Animation using ::after pseudo-element */
 .skills-title::after {
   content: '';
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 3px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #22c55e;
+  border-radius: 2px;
+  /* Initial state: invisible and scaled to zero width */
+  transform: scaleX(0);
+  transform-origin: left;
+  /* The animation will be triggered by the .animate class */
 }
 
+/* Character Reveal Animation */
+.skills-title span {
+  display: inline-block;
+  /* Initial state: invisible and moved down */
+  opacity: 0;
+  transform: translateY(20px);
+  /* The animation will be triggered by the .animate class */
+}
+
+/* ✅ NEW: Apply animations when the .animate class is present */
+.skills-title.animate span {
+  animation: reveal-char 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.skills-title.animate::after {
+  animation: draw-underline 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+  animation-delay: 0.7s; /* Start underline after characters appear */
+}
+
+/* Keyframes for the character reveal */
+@keyframes reveal-char {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for the underline draw */
+@keyframes draw-underline {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Main title ("Tech Stack") uses the global .section-title class */
+/* Ensure you have this in your main stylesheet or add it here: */
+.section-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #22c55e; /* Vibrant Green accent */
+  border-radius: 2px;
+}
+
+/* Subtitles (e.g., "Languages & Frameworks") */
 .skills-subtitle {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #ffffff;
   text-align: left;
-  margin: 40px auto 10px;
+  margin: 40px auto 15px;
   max-width: 1100px;
   font-family: 'Poppins', sans-serif;
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid #22c55e; /* Green accent */
   padding-left: 12px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 20px;
   max-width: 1100px;
   margin: 20px auto 40px;
-  padding: 0 10px;
 }
 
 .skill-item {
-  background-color: #f1f5f9;
+  background-color: #1f2937; /* Darker card background */
   padding: 20px;
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .skill-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .skill-icon {
   font-size: 2.8rem;
-  color: #2563eb;
-  margin-bottom: 10px;
+  color: #22c55e; /* Green accent */
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.1);
 }
 
 .skill-name {
   font-size: 1rem;
   font-weight: 500;
-  color: #374151;
+  color: #d1d5db; /* Light gray text */
   font-family: 'Poppins', sans-serif;
 }
 
 /* Pie Chart */
 .skill-hover-chart {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #e5e7eb;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px; /* Match parent border-radius */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,83 +166,47 @@
   animation: fadeIn 0.4s ease forwards;
   pointer-events: none;
   z-index: 2;
+  backdrop-filter: blur(4px);
+  background-color: rgba(31, 41, 55, 0.7); /* Semi-transparent dark overlay */
 }
 
 .skill-item.clicked .skill-hover-chart {
   opacity: 1;
 }
 
+.circle-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .circle-ring-text {
   font-weight: 600;
-  color: #1f2937;
-  font-size: 0.95rem;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-@keyframes jump {
-  0% { transform: scale(1) translateY(0); }
-  30% { transform: scale(1.1) translateY(-8px); }
-  60% { transform: scale(1.05) translateY(4px); }
-  100% { transform: scale(1) translateY(0); }
-}
-
-.skill-item.clicked {
-  animation: jump 0.4s ease-in-out;
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .skills-title {
-    font-size: 2rem;
-  }
-
-  .skills-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .skill-icon {
-    font-size: 2.2rem;
-  }
-
-  .skill-name {
-    font-size: 0.85rem;
-  }
-
-  .skill-hover-chart {
-    width: 70px;
-    height: 70px;
-  }
+  .skills-subtitle { font-size: 1.1rem; }
+  .skill-icon { font-size: 2.2rem; }
+  .skill-name { font-size: 0.9rem; }
+  .circle-ring { width: 80px; height: 80px; }
 }
 
 @media (max-width: 480px) {
-  .skills-title {
-    font-size: 1.8rem;
-  }
-
-  .skills-subtitle {
-    font-size: 1rem;
-  }
-
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
   }
-
-  .skill-icon {
-    font-size: 2rem;
-  }
-
-  .skill-name {
-    font-size: 0.8rem;
-  }
+  .skill-name { font-size: 0.85rem; }
 }

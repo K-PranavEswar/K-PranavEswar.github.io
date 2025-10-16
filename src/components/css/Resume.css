@@ -1,151 +1,135 @@
+/* === Resume Section === */
 .resume-section {
-  padding: 4rem 1.5rem;
-  background-color: #fff;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 6rem 2rem;
+  background-color: #111827; /* Dark theme background */
+  color: #d1d5db; /* Default light text */
 }
 
-.resume-title-block {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+/* Main title "Resume" uses the global .section-title class */
+/* Make sure .section-title is in your main stylesheet */
 
-.resume-main-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #374151;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.resume-main-heading::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 8px auto 0;
-  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
-  border-radius: 3px;
-}
-
-/* Reusable for Summary, Experience, Education */
+/* Subheadings (Summary, Experience, Education) */
 .resume-subheading {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #374151;
-  position: relative;
-  display: inline-block;
-  text-align: center;
+  color: #ffffff;
   margin: 3rem 0 2rem;
-}
-
-.resume-subheading::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 8px auto 0;
-  background: linear-gradient(to right, transparent 0%, #2563eb 50%, transparent 100%);
-  border-radius: 3px;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #22c55e; /* Green accent underline */
+  display: inline-block;
 }
 
 .resume-intro {
-  max-width: 850px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  color: #374151;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
   line-height: 1.8;
+  text-align: center;
+  color: #9ca3af; /* Lighter gray for intro text */
 }
 
-.resume-timeline {
-  display: flex;
-  align-items: flex-start;
+/* Timeline Styling */
+.resume-timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
   position: relative;
-  margin-bottom: 2rem;
+  padding-left: 30px; /* Space for the timeline vertical line */
 }
 
-.resume-point {
+/* The vertical line */
+.resume-timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  background-color: #1f2937; /* Darker line color */
+  border-radius: 2px;
+}
+
+.resume-item {
   position: relative;
-  width: 12px;
-  height: 12px;
-  background-color: #2563eb;
+  margin-bottom: 2.5rem;
+}
+
+/* The circle on the timeline */
+.resume-item::before {
+  content: '';
+  position: absolute;
+  left: -28px; /* Position over the vertical line */
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: #22c55e; /* Green accent */
+  border: 3px solid #111827; /* Creates a hollow effect */
   border-radius: 50%;
-  margin-top: 0;
-  left: 14px;
-  flex-shrink: 0;
-}
-
-.resume-point::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 5px;
-  width: 2px;
-  height: calc(100% - 12px);
-  background-color: #2563eb;
-}
-
-.resume-point::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 14px;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 6px solid #2563eb;
+  z-index: 1;
 }
 
 .resume-content {
-  padding-left: 1.5rem;
-  border-left: 2px solid #2563eb;
-  margin-left: 0.5rem;
-  flex-grow: 1;
+  background-color: #1f2937; /* Dark card background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #22c55e; /* Green accent border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-content:hover {
+  transform: translateX(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .resume-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2563eb;
+  color: #22c55e; /* Green accent for titles */
   margin-bottom: 0.5rem;
   line-height: 1.4;
 }
 
 .resume-date {
-  background-color: #f1f1f1;
+  background-color: #374151; /* Darker gray for date chip */
+  color: #e5e7eb;
   display: inline-block;
-  padding: 0.3rem 0.6rem;
+  padding: 0.3rem 0.8rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border-radius: 15px;
 }
 
 .resume-description {
   font-style: italic;
-  line-height: 1.8;
-  color: #374151;
+  line-height: 1.7;
+  color: #9ca3af;
   margin-bottom: 1rem;
 }
 
 .resume-contact-list {
-  list-style: disc;
-  padding-left: 1rem;
-  color: #374151;
-  margin-bottom: 1rem;
+  list-style: none;
+  padding-left: 0;
+  color: #d1d5db;
 }
 
 .resume-contact-list li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.resume-contact-list li::before {
+  content: '▹'; /* Arrow-style bullet */
+  position: absolute;
+  left: 0;
+  color: #22c55e; /* Green accent */
 }
 
 .resume-contact-list a {
-  color: #2563eb;
+  color: #22c55e;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .resume-contact-list a:hover {
@@ -154,13 +138,13 @@
 
 .resume-link {
   font-size: 1rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   text-align: center;
-  color: #374151;
+  color: #9ca3af;
 }
 
 .resume-link a {
-  color: #2563eb;
+  color: #22c55e;
   font-weight: 600;
   text-decoration: none;
 }
@@ -172,30 +156,17 @@
 /* Responsive */
 @media (max-width: 640px) {
   .resume-section {
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
   }
-
-  .resume-main-heading {
-    font-size: 2rem;
+  .resume-timeline-container {
+    padding-left: 20px;
   }
-
-  .resume-subheading {
-    font-size: 1.5rem;
+  .resume-item::before {
+    left: -20px;
+    width: 12px;
+    height: 12px;
   }
-
-  .resume-intro {
-    font-size: 1rem;
-  }
-
-  .resume-content {
-    padding-left: 1rem;
-  }
-
   .resume-name {
     font-size: 1.1rem;
-  }
-
-  .resume-date {
-    font-size: 0.85rem;
   }
 }
