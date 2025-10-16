@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import { FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import profilePic from '../assets/image111.jpg';
+import profilePic from '../assets/image111.jpeg';
 import './css/Hero.css';
 
 const Hero = () => {
