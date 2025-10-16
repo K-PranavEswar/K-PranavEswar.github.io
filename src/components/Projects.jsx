@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import './css/Projects.css';
@@ -11,23 +11,48 @@ import reliefLinkLogo from '../assets/relieflink.png';
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const titleRef = useRef(null);
 
+  // Observer to trigger the title animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    const currentTitle = titleRef.current;
+    if (currentTitle) {
+      observer.observe(currentTitle);
+    }
+    return () => {
+      if (currentTitle) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
+  // ✅ ENSURE THIS DATA IS PRESENT
   const bcaProjects = [
     {
       title: 'ChrisAccessEdge',
       logo: chrisAccessLogo,
-      description: 'A full-stack Visitor Pass Management System designed to digitize and streamline visitor logs at Christ College. Built with Spring Boot, React, and Node.js for an efficient and secure solution.',
+      description: 'A full-stack Visitor Pass Management System designed to digitize visitor logs at Christ College using Spring Boot, React, and Node.js.',
       members: [
-        { name: 'Sivapradeesh M', linkedinUrl: 'https://www.linkedin.com/in/sivapradeesh-m-a06961309/' },
-        { name: 'Parvathy M Haima' },
+        { name: 'Sivapradeesh M', linkedinUrl: 'https://www.linkedin.com/in/sivapradeesh-m/' },
+        { name: 'Parvathy M Haima', linkedinUrl: 'https://www.linkedin.com/in/parvathy-m-haima/' },
       ],
     },
     {
       title: 'MEDINET-GPS',
       logo: medinetLogo,
-      description: 'A real-time app to assist accident patients by quickly connecting them to nearby hospitals. It enables efficient ambulance navigation and ensures patients reach the correct facility promptly to help save lives.',
+      description: 'A real-time app to assist accident patients by quickly connecting them to nearby hospitals, enabling efficient ambulance navigation to help save lives.',
       members: [
-        { name: 'Joshua J', linkedinUrl: 'https://www.linkedin.com/in/joshua-j-040273331/' },
+        { name: 'Joshua J', linkedinUrl: 'https://www.linkedin.com/in/joshua-j/' },
       ],
     },
   ];
@@ -36,7 +61,7 @@ const Projects = () => {
     {
       title: 'ReliefLink',
       logo: reliefLinkLogo,
-      description: 'A real-time disaster relief and volunteer coordination platform. It enables the public to request help, volunteers to manage resources, and admins to monitor disaster zones, streamlining response efforts.',
+      description: 'A real-time disaster relief and volunteer coordination platform using PHP and AJAX that enables the public to request help and admins to monitor disaster zones.',
     },
   ];
 
@@ -78,15 +103,8 @@ const Projects = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <p className="project-description">
-                  <Typewriter
-                    words={[project.description]}
-                    loop={1}
-                    cursor
-                    cursorStyle="_"
-                    typeSpeed={30}
-                  />
+                  <Typewriter words={[project.description]} loop={1} cursor cursorStyle="_" typeSpeed={30} />
                 </p>
-                {/* ✅ CHANGED: Logic to render member names as links */}
                 {project.members && (
                   <div className="project-members">
                     <strong>Team Members: </strong>
@@ -96,7 +114,7 @@ const Projects = () => {
                           href={member.linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()} // Prevents the card from closing when a link is clicked
+                          onClick={(e) => e.stopPropagation()}
                         >
                           {member.name}
                         </a>
@@ -114,15 +132,13 @@ const Projects = () => {
 
   return (
     <section className="projects-section" id="projects">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        My Projects
-      </motion.h2>
+      <h2 className="section-title" ref={titleRef}>
+        {"My Projects".split('').map((char, index) => (
+          <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+      </h2>
 
       <motion.div
         className="folder-block"

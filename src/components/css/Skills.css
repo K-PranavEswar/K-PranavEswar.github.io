@@ -1,11 +1,29 @@
-/* === Skills Section === */
+/* ===================================================
+   Skills Section
+=================================================== */
 .skills-section {
   padding: 6rem 2rem;
-  background-color: #111827; /* Dark theme background */
+  background-color: transparent; /* Changed for particle visibility */
   text-align: center;
+  position: relative; /* Positioning context for particles */
+  z-index: 1;
 }
-/* Professional Animated Section Title */
-.skills-title {
+
+/* Position the particle canvas for this section */
+#tsparticles-skills {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #111827; /* Section's own background color */
+}
+
+/* ===================================================
+   Professional Animated Title
+=================================================== */
+.section-title {
   font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 700;
   color: #ffffff;
@@ -13,12 +31,10 @@
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
-  /* This ensures the child spans don't overflow during animation */
   overflow: hidden; 
 }
 
-/* Underline Animation using ::after pseudo-element */
-.skills-title::after {
+.section-title::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -27,70 +43,36 @@
   height: 4px;
   background-color: #22c55e;
   border-radius: 2px;
-  /* Initial state: invisible and scaled to zero width */
   transform: scaleX(0);
   transform-origin: left;
-  /* The animation will be triggered by the .animate class */
 }
 
-/* Character Reveal Animation */
-.skills-title span {
+.section-title span {
   display: inline-block;
-  /* Initial state: invisible and moved down */
   opacity: 0;
   transform: translateY(20px);
-  /* The animation will be triggered by the .animate class */
 }
 
-/* ✅ NEW: Apply animations when the .animate class is present */
-.skills-title.animate span {
+.section-title.animate span {
   animation: reveal-char 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.skills-title.animate::after {
+.section-title.animate::after {
   animation: draw-underline 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
-  animation-delay: 0.7s; /* Start underline after characters appear */
+  animation-delay: 0.7s;
 }
 
-/* Keyframes for the character reveal */
-@keyframes reveal-char {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes reveal-char { to { opacity: 1; transform: translateY(0); } }
+@keyframes draw-underline { to { transform: scaleX(1); } }
 
-/* Keyframes for the underline draw */
-@keyframes draw-underline {
-  to {
-    transform: scaleX(1);
-  }
-}
-
-/* Main title ("Tech Stack") uses the global .section-title class */
-/* Ensure you have this in your main stylesheet or add it here: */
-.section-title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 3rem;
+/* ===================================================
+   Skills Content
+=================================================== */
+.skills-content-wrapper {
   position: relative;
+  z-index: 1;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #22c55e; /* Vibrant Green accent */
-  border-radius: 2px;
-}
-
-/* Subtitles (e.g., "Languages & Frameworks") */
 .skills-subtitle {
   font-size: 1.3rem;
   font-weight: 600;
@@ -99,7 +81,7 @@
   margin: 40px auto 15px;
   max-width: 1100px;
   font-family: 'Poppins', sans-serif;
-  border-left: 4px solid #22c55e; /* Green accent */
+  border-left: 4px solid #22c55e;
   padding-left: 12px;
 }
 
@@ -112,7 +94,7 @@
 }
 
 .skill-item {
-  background-color: #1f2937; /* Darker card background */
+  background-color: #1f2937;
   padding: 20px;
   border-radius: 14px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -135,7 +117,7 @@
 
 .skill-icon {
   font-size: 2.8rem;
-  color: #22c55e; /* Green accent */
+  color: #22c55e;
   margin-bottom: 12px;
   transition: transform 0.3s ease;
 }
@@ -147,18 +129,17 @@
 .skill-name {
   font-size: 1rem;
   font-weight: 500;
-  color: #d1d5db; /* Light gray text */
+  color: #d1d5db;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Pie Chart */
 .skill-hover-chart {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 14px; /* Match parent border-radius */
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +148,7 @@
   pointer-events: none;
   z-index: 2;
   backdrop-filter: blur(4px);
-  background-color: rgba(31, 41, 55, 0.7); /* Semi-transparent dark overlay */
+  background-color: rgba(31, 41, 55, 0.7);
 }
 
 .skill-item.clicked .skill-hover-chart {
@@ -189,13 +170,14 @@
   font-size: 1rem;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Responsive */
+/* ===================================================
+   Responsiveness
+=================================================== */
 @media (max-width: 768px) {
   .skills-subtitle { font-size: 1.1rem; }
   .skill-icon { font-size: 2.2rem; }

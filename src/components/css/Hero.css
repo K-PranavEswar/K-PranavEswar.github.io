@@ -1,41 +1,58 @@
-/* === Hero Section (Base Styles) === */
+/* ===================================================
+   Hero Section
+=================================================== */
 .hero {
   min-height: 100vh;
   width: 100%;
-  background-color: #111827; /* Dark blue-gray background */
   display: flex;
   align-items: center;
   padding: 2rem;
   overflow: hidden;
   box-sizing: border-box;
+  position: relative; /* Establishes a positioning context for the particle background */
 }
 
+/* Position the particle canvas behind the content */
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Ensure the main content container sits on top of the particles */
 .hero-container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Default: two columns for desktop */
+  grid-template-columns: 1.2fr 1fr;
   align-items: center;
   gap: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* === Left Content Column === */
+/* ===================================================
+   Left Content Column
+=================================================== */
 .hero-content {
-  color: #ffffff;
+  color: var(--text-white);
 }
 
 .hero-intro {
   font-size: 1.25rem;
   font-weight: 500;
-  color: #9ca3af;
+  color: var(--text-dark-gray);
   margin-bottom: 0.5rem;
 }
 
 .hero-name {
-  font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
-  color: #22c55e; /* Vibrant Green */
+  color: var(--accent-green);
   margin-bottom: 0.5rem;
   line-height: 1.1;
 }
@@ -44,46 +61,44 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: #e5e7eb;
-  min-height: 50px; /* Prevents layout shift while typewriter types */
+  color: var(--text-light);
+  min-height: 50px; /* Prevents layout shift from typewriter */
 }
 
 .hero-title span:last-child {
-  color: #a7f3d0;
+  color: var(--accent-green-light);
 }
 
-/* === Animated Description Text === */
+/* Animated Description Text */
 .hero-description {
   font-size: 1rem;
-  color: #d1d5db;
+  color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 500px;
-  cursor: pointer; /* Indicates the text is interactive */
+  cursor: pointer;
 }
 
-/* Style for each individual character (letter) */
 .hero-description span {
-  display: inline-block; /* Allows transform to work */
+  display: inline-block;
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s;
 }
 
-/* On hover of the paragraph, animate the child spans */
 .hero-description:hover span {
-  transform: translateY(-8px); /* The "jump" effect */
-  color: #22c55e; /* Change color to the green accent */
+  transform: translateY(-8px);
+  color: var(--accent-green);
 }
 
 .hero-cta-button {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
-  color: #ffffff;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-green-dark));
+  color: var(--text-white);
   padding: 0.9rem 2.2rem;
   border: none;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+  box-shadow: var(--shadow-accent);
   display: inline-block;
 }
 
@@ -92,7 +107,7 @@
   box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
 }
 
-/* === Social Links === */
+/* Social Links */
 .hero-socials {
   margin-top: 4rem;
   display: flex;
@@ -102,7 +117,7 @@
 
 .social-text {
   font-weight: 500;
-  color: #9ca3af;
+  color: var(--text-dark-gray);
 }
 
 .social-icons {
@@ -111,17 +126,19 @@
 }
 
 .social-icons a {
-  color: #9ca3af;
+  color: var(--text-dark-gray);
   font-size: 1.6rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #22c55e;
+  color: var(--accent-green);
   transform: translateY(-4px);
 }
 
-/* === Right Image Column (Hexagon) === */
+/* ===================================================
+   Right Image Column (Hexagon)
+=================================================== */
 .hero-image-container {
   display: flex;
   justify-content: center;
@@ -130,9 +147,9 @@
 }
 
 .hero-image-wrapper {
-  width: clamp(280px, 100%, 400px); /* Responsive width */
+  width: clamp(280px, 100%, 400px);
   aspect-ratio: 400 / 450;
-  background-color: #22c55e;
+  background-color: var(--accent-green);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex;
   justify-content: center;
@@ -152,32 +169,27 @@
 }
 
 /* ===================================================
-  MEDIA QUERIES FOR RESPONSIVENESS
- ===================================================
-*/
+   Media Queries for Responsiveness
+=================================================== */
 
-/* === For Tablets and Smaller Desktops (<= 992px) === */
+/* For Tablets and Smaller Desktops */
 @media (max-width: 992px) {
   .hero {
-    /* Add more padding at the top to avoid overlap with sticky header */
     padding-top: 8rem; 
-    min-height: auto; /* Adjust height for content flow */
+    min-height: auto;
   }
 
   .hero-container {
-    /* Switch to a single-column layout */
     grid-template-columns: 1fr; 
     text-align: center;
     gap: 2rem;
   }
   
   .hero-content {
-    /* Ensure content is below the image */
     order: 2; 
   }
 
   .hero-image-container {
-    /* Ensure image is above the content */
     order: 1; 
     margin-bottom: 2rem;
   }
@@ -192,10 +204,10 @@
   }
 }
 
-/* === For Mobile Phones (<= 480px) === */
+/* For Mobile Phones */
 @media (max-width: 480px) {
   .hero {
-    padding: 6rem 1.5rem 3rem 1.5rem; /* Adjust padding for small screens */
+    padding: 6rem 1.5rem 3rem 1.5rem;
   }
   
   .hero-title {

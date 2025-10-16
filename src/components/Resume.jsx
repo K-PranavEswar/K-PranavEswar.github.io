@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
+// Imports for the particle background
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import particlesConfig from '../../src/particlesConfig'; // Ensure this path is correct
+
 import './css/Resume.css';
 
 const sectionVariants = {
@@ -27,14 +33,68 @@ const AnimatedSection = ({ children }) => {
 };
 
 const Resume = () => {
+  const titleRef = useRef(null);
+  const { ref: timelineRef, inView: timelineInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  // Required initialization function for tsparticles
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
+  // IntersectionObserver to trigger the title animation on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const currentTitle = titleRef.current;
+    if (currentTitle) {
+      observer.observe(currentTitle);
+    }
+
+    return () => {
+      if (currentTitle) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
   return (
     <section className="resume-section" id="resume">
-      <h2 className="section-title">Resume</h2>
+      {/* The Particle background component */}
+      <Particles
+        id="tsparticles-resume" // Unique ID for this instance
+        init={particlesInit}
+        options={particlesConfig}
+      />
+
+      {/* Animated Section Title */}
+      <h2 className="section-title" ref={titleRef}>
+        {"Resume".split('').map((char, index) => (
+          <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+            {char}
+          </span>
+        ))}
+      </h2>
       <p className="resume-intro">
         A snapshot of my professional journey, highlighting my skills, experience, and dedication to continuous learning in the ever-evolving tech landscape.
       </p>
 
-      <div className="resume-timeline-container">
+      {/* Animated Timeline Container */}
+      <div 
+        className={`resume-timeline-container ${timelineInView ? 'in-view' : ''}`}
+        ref={timelineRef}
+      >
         {/* Summary */}
         <AnimatedSection>
           <h3 className="resume-subheading">Summary</h3>
@@ -76,11 +136,11 @@ const Resume = () => {
               </ul>
             </div>
           </div>
-           <div className="resume-item">
+          <div className="resume-item">
             <div className="resume-content">
               <h4 className="resume-name">Graphic Designer (Freelance)</h4>
               <div className="resume-date">Jan 2025 – June 2025</div>
-               <p className="resume-description">Working independently using Figma to design modern UI/UX and graphics.</p>
+              <p className="resume-description">Working independently using Figma to design modern UI/UX and graphics.</p>
             </div>
           </div>
         </AnimatedSection>
@@ -106,7 +166,7 @@ const Resume = () => {
             <div className="resume-content">
               <h4 className="resume-name">HSE | CBSE </h4>
               <div className="resume-date">2020 – 2022</div>
-              <p className="resume-description">Chinmaya Vidyalaya ATtukal — CGPA: 6.6 / 10</p>
+              <p className="resume-description">Chinmaya Vidyalaya Attukal — CGPA: 6.6 / 10</p>
             </div>
           </div>
         </AnimatedSection>

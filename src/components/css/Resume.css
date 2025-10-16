@@ -1,42 +1,89 @@
-/* === Resume Section === */
+/* ===================================================
+   Resume Section
+=================================================== */
 .resume-section {
   padding: 6rem 2rem;
-  background-color: #111827; /* Dark theme background */
-  color: #d1d5db; /* Default light text */
+  background-color: transparent; /* Changed to transparent for particle visibility */
+  color: #d1d5db;
+  position: relative; /* Establishes positioning context for particles */
+  z-index: 1; /* Ensures this section sits above the global particle background */
 }
 
-/* Main title "Resume" uses the global .section-title class */
-/* Make sure .section-title is in your main stylesheet */
+/* Position the particle canvas for this section */
+#tsparticles-resume {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place behind this section's content */
+  background-color: #111827; /* Give this canvas its own background color */
+}
 
-/* Subheadings (Summary, Experience, Education) */
-.resume-subheading {
-  font-size: 1.8rem;
+/* ===================================================
+   Professional Animated Title
+=================================================== */
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 700;
   color: #ffffff;
-  margin: 3rem 0 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #22c55e; /* Green accent underline */
-  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden; 
 }
 
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #22c55e;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.section-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-title.animate span {
+  animation: reveal-char 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.section-title.animate::after {
+  animation: draw-underline 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes reveal-char { to { opacity: 1; transform: translateY(0); } }
+@keyframes draw-underline { to { transform: scaleX(1); } }
+
+/* ===================================================
+   Timeline and Content
+=================================================== */
 .resume-intro {
   max-width: 800px;
   margin: 0 auto 3rem;
   font-size: 1rem;
   line-height: 1.8;
   text-align: center;
-  color: #9ca3af; /* Lighter gray for intro text */
+  color: #9ca3af;
 }
 
-/* Timeline Styling */
 .resume-timeline-container {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  padding-left: 30px; /* Space for the timeline vertical line */
+  padding-left: 30px;
 }
 
-/* The vertical line */
 .resume-timeline-container::before {
   content: '';
   position: absolute;
@@ -44,8 +91,15 @@
   top: 5px;
   bottom: 5px;
   width: 3px;
-  background-color: #1f2937; /* Darker line color */
+  background-color: #1f2937;
   border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.8s ease-out;
+}
+
+.resume-timeline-container.in-view::before {
+  transform: scaleY(1);
 }
 
 .resume-item {
@@ -53,25 +107,30 @@
   margin-bottom: 2.5rem;
 }
 
-/* The circle on the timeline */
 .resume-item::before {
   content: '';
   position: absolute;
-  left: -28px; /* Position over the vertical line */
+  left: -28px;
   top: 5px;
   width: 15px;
   height: 15px;
-  background-color: #22c55e; /* Green accent */
-  border: 3px solid #111827; /* Creates a hollow effect */
+  background-color: #22c55e;
+  border: 3px solid #111827;
   border-radius: 50%;
   z-index: 1;
+  animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
 }
 
 .resume-content {
-  background-color: #1f2937; /* Dark card background */
+  background-color: #1f2937;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #22c55e; /* Green accent border */
+  border-left: 4px solid #22c55e;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -83,13 +142,13 @@
 .resume-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #22c55e; /* Green accent for titles */
+  color: #22c55e;
   margin-bottom: 0.5rem;
   line-height: 1.4;
 }
 
 .resume-date {
-  background-color: #374151; /* Darker gray for date chip */
+  background-color: #374151;
   color: #e5e7eb;
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -120,10 +179,10 @@
 }
 
 .resume-contact-list li::before {
-  content: '▹'; /* Arrow-style bullet */
+  content: '▹';
   position: absolute;
   left: 0;
-  color: #22c55e; /* Green accent */
+  color: #22c55e;
 }
 
 .resume-contact-list a {
@@ -153,7 +212,9 @@
   text-decoration: underline;
 }
 
-/* Responsive */
+/* ===================================================
+   Responsiveness
+=================================================== */
 @media (max-width: 640px) {
   .resume-section {
     padding: 4rem 1rem;

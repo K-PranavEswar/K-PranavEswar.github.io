@@ -1,33 +1,87 @@
-/* === About Section === */
+/* ===================================================
+   About Section
+=================================================== */
 .about-section {
   padding: 6rem 2rem;
-  background-color: #111827; /* Dark background to match Hero */
-  color: #d1d5db; /* Default light text color */
+  background-color: #111827; /* Dark background */
+  color: #d1d5db;
   overflow: hidden;
+  position: relative; /* Establishes positioning context for particles */
 }
 
-/* === Main Section Title ("About Me") === */
+/* Position the particle canvas */
+#tsparticles-about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ===================================================
+   Professional Animated Title
+=================================================== */
 .section-title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 700;
   color: #ffffff;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   margin-bottom: 3rem;
-  position: relative;
+  position: relative; /* Required for z-index and pseudo-element */
+  z-index: 1; /* Ensure title is above particles */
+  overflow: hidden; 
 }
 
+/* Underline Animation */
 .section-title::after {
   content: '';
   position: absolute;
   bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
+  left: 0;
+  width: 100%;
   height: 4px;
-  background-color: #22c55e; /* Vibrant Green accent */
+  background-color: #22c55e;
   border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
+/* Character Reveal Animation */
+.section-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animation Triggers */
+.section-title.animate span {
+  animation: reveal-char 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.section-title.animate::after {
+  animation: draw-underline 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+  animation-delay: 0.7s;
+}
+
+/* Keyframes */
+@keyframes reveal-char {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-underline {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ===================================================
+   Grid and Content Layout
+=================================================== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -36,9 +90,11 @@
   width: 100%;
   margin: 0 auto;
   align-items: flex-start;
+  position: relative; /* Required for z-index */
+  z-index: 1; /* Ensure content is above particles */
 }
 
-/* === Image Styling === */
+/* Image Styling */
 .about-image-wrapper {
   width: 100%;
   max-width: 320px;
@@ -61,11 +117,11 @@
   display: block;
 }
 
-/* === Content Styling === */
+/* Content Styling */
 .about-content h3 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff; /* Brighter white for heading */
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
@@ -79,11 +135,11 @@
   margin-top: 1.5rem;
 }
 
-/* === Arrow Detail List === */
+/* Arrow Detail List */
 .arrow-details-list {
   margin: 2rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns for details */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -93,14 +149,14 @@
 }
 
 .arrow-symbol {
-  color: #22c55e; /* Green accent */
+  color: #22c55e;
   font-weight: 700;
   margin-right: 0.6rem;
 }
 
 .arrow-label {
   font-weight: 600;
-  color: #ffffff; /* White label */
+  color: #ffffff;
   margin-right: 0.5rem;
 }
 
@@ -114,24 +170,23 @@
   text-decoration: underline;
 }
 
-/* === Responsive === */
+/* ===================================================
+   Responsiveness
+=================================================== */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr; /* Stack columns on tablets */
     gap: 2.5rem;
   }
-
   .about-content {
     text-align: center;
   }
-
   .about-image-wrapper {
     max-width: 280px;
   }
-
   .arrow-details-list {
-    grid-template-columns: 1fr; /* Single column for details */
-    text-align: left; /* Align text left for readability */
+    grid-template-columns: 1fr;
+    text-align: left;
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -142,11 +197,9 @@
   .about-section {
     padding: 4rem 1.5rem;
   }
-
   .about-content h3 {
     font-size: 1.5rem;
   }
-
   .about-content p {
     font-size: 0.95rem;
   }
