@@ -21,7 +21,7 @@ const aboutDetails = [
   },
   { label: 'Phone', value: '+91 9074261433' },
   { label: 'City', value: 'Trivandrum, India' },
-  { label: 'Degree', value: 'Bachelors of Computer Applications' },
+  { label: 'Degree', value: 'Masters of Computer Applications' },
   {
     label: 'Email',
     value: <a href="mailto:pranavartist1@gmail.com">pranavartist1@gmail.com</a>,
@@ -32,12 +32,9 @@ const aboutDetails = [
 const About = () => {
   const titleRef = useRef(null);
 
-  // Required initialization function for tsparticles
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
-
-  // IntersectionObserver to trigger the title animation on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -64,14 +61,11 @@ const About = () => {
 
   return (
     <section className="about-section" id="about">
-      {/* The Particle background component */}
       <Particles
-        id="tsparticles-about" // Unique ID for this instance
+        id="tsparticles-about"
         init={particlesInit}
         options={particlesConfig}
       />
-
-      {/* Animated Section Title */}
       <h2 className="section-title" ref={titleRef}>
         {"About Me".split('').map((char, index) => (
           <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
@@ -81,7 +75,6 @@ const About = () => {
       </h2>
 
       <div className="about-grid">
-        {/* Photo Column */}
         <motion.div
           className="about-image-wrapper"
           initial={{ scale: 0.8, opacity: 0 }}
@@ -91,8 +84,6 @@ const About = () => {
         >
           <img src={pranavImage} alt="Pranav Eswar" className="about-photo" />
         </motion.div>
-
-        {/* Content Column */}
         <div className="about-content">
           <motion.h3
             initial={{ opacity: 0, y: -20 }}
