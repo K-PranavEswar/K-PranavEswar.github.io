@@ -1,17 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import './css/Projects.css';
 import { FaAngleDown, FaFolderOpen } from 'react-icons/fa';
 
-// Project Logos
-import chrisAccessLogo from '../assets/favicon.ico';
-import medinetLogo from '../assets/mednet.png';
-import reliefLinkLogo from '../assets/relieflink.png';
+// Imports for the particle background
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import particlesConfig from '../../src/particlesConfig';
+
+// ✅ CORRECTED PATH: Use './' to look in the current directory
+import { bcaProjects, freelanceProjects } from './projectData';
+
+import './css/Projects.css';
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const titleRef = useRef(null);
+
+  // Required initialization function for tsparticles
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
 
   // Observer to trigger the title animation
   useEffect(() => {
@@ -35,35 +44,6 @@ const Projects = () => {
       }
     };
   }, []);
-
-  // ✅ ENSURE THIS DATA IS PRESENT
-  const bcaProjects = [
-    {
-      title: 'ChrisAccessEdge',
-      logo: chrisAccessLogo,
-      description: 'A full-stack Visitor Pass Management System designed to digitize visitor logs at Christ College using Spring Boot, React, and Node.js.',
-      members: [
-        { name: 'Sivapradeesh M', linkedinUrl: 'https://www.linkedin.com/in/sivapradeesh-m/' },
-        { name: 'Parvathy M Haima', linkedinUrl: 'https://www.linkedin.com/in/parvathy-m-haima/' },
-      ],
-    },
-    {
-      title: 'MEDINET-GPS',
-      logo: medinetLogo,
-      description: 'A real-time app to assist accident patients by quickly connecting them to nearby hospitals, enabling efficient ambulance navigation to help save lives.',
-      members: [
-        { name: 'Joshua J', linkedinUrl: 'https://www.linkedin.com/in/joshua-j/' },
-      ],
-    },
-  ];
-
-  const freelanceProjects = [
-    {
-      title: 'ReliefLink',
-      logo: reliefLinkLogo,
-      description: 'A real-time disaster relief and volunteer coordination platform using PHP and AJAX that enables the public to request help and admins to monitor disaster zones.',
-    },
-  ];
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -132,6 +112,12 @@ const Projects = () => {
 
   return (
     <section className="projects-section" id="projects">
+      <Particles
+        id="tsparticles-projects"
+        init={particlesInit}
+        options={particlesConfig}
+      />
+      
       <h2 className="section-title" ref={titleRef}>
         {"My Projects".split('').map((char, index) => (
           <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
@@ -158,7 +144,7 @@ const Projects = () => {
         className="folder-block"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
         viewport={{ once: true }}
       >
         <div className="folder-header">

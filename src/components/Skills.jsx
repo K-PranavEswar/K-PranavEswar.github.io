@@ -9,17 +9,17 @@ import { SiJquery, SiAxios } from 'react-icons/si';
 
 const categories = {
   "Languages & Frameworks": [
-    { name: 'HTML', icon: <FaHtml5 />, percent: 100 },
+    { name: 'HTML', icon: <FaHtml5 />, percent: 70 },
     { name: 'CSS', icon: <FaCss3Alt />, percent: 75 },
     { name: 'JavaScript', icon: <FaJsSquare />, percent: 75 },
-    { name: 'Bootstrap', icon: <FaBootstrap />, percent: 100 },
+    { name: 'Bootstrap', icon: <FaBootstrap />, percent: 75 },
     { name: 'jQuery', icon: <SiJquery />, percent: 80 },
     { name: 'AJAX', icon: <SiAxios />, percent: 80 },
     { name: 'React', icon: <FaReact />, percent: 75 },
     { name: 'Node.js', icon: <FaNodeJs />, percent: 80 },
     { name: 'Express', icon: <FaNodeJs />, percent: 75 },
-    { name: 'PHP', icon: <FaPhp />, percent: 85 },
-    { name: 'Python', icon: <FaPython />, percent: 85 },
+    { name: 'PHP', icon: <FaPhp />, percent: 75 },
+    { name: 'Python', icon: <FaPython />, percent: 70 },
     { name: 'Java', icon: <FaJava />, percent: 80 },
     { name: 'C++', icon: <FaJava />, percent: 60 },
   ],

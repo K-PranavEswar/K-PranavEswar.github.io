@@ -1,20 +1,82 @@
-/* === Projects Section === */
+/* ===================================================
+   Projects Section
+=================================================== */
 .projects-section {
   padding: 6rem 2rem;
-  background-color: #111827; /* Dark theme background */
+  background-color: transparent; /* Changed for particle visibility */
   text-align: center;
+  position: relative; /* Positioning context */
+  z-index: 1;
 }
 
-/* Main title "Projects" uses the global .section-title class */
+/* Position the particle canvas for this section */
+#tsparticles-projects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #111827; /* Section's own background color */
+}
 
-/* Folder Block Styling */
+/* ===================================================
+   Professional Animated Title
+=================================================== */
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #22c55e;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.section-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-title.animate span {
+  animation: reveal-char 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.section-title.animate::after {
+  animation: draw-underline 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes reveal-char { to { opacity: 1; transform: translateY(0); } }
+@keyframes draw-underline { to { transform: scaleX(1); } }
+
+/* ===================================================
+   Folder Block and Project Cards
+=================================================== */
 .folder-block {
   max-width: 1000px;
   margin: 2.5rem auto 0;
-  border: 1px solid #374151; /* Darker border */
+  border: 1px solid #374151;
   border-radius: 12px;
   padding: 1.5rem;
-  background-color: #1f2937; /* Lighter dark background */
+  background-color: #1f2937;
+  position: relative;
+  z-index: 1;
 }
 
 .folder-header {
@@ -28,7 +90,7 @@
 
 .folder-icon {
   font-size: 1.5rem;
-  color: #22c55e; /* Green accent */
+  color: #22c55e;
 }
 
 .folder-title {
@@ -37,7 +99,6 @@
   color: #ffffff;
 }
 
-/* Projects Grid & Cards */
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -45,19 +106,20 @@
 }
 
 .project-card {
-  background-color: #374151; /* Card background */
+  background-color: #374151;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   text-align: left;
   cursor: pointer;
   border-left: 4px solid transparent;
-  overflow: hidden; /* Important for the details slide-down effect */
+  overflow: hidden;
 }
 
 .project-card:hover {
-  transform: translateX(5px);
+  transform: translateX(5px) scale(1.02);
   border-left-color: #22c55e;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
 }
 
 .project-header {
@@ -99,7 +161,6 @@
   color: #22c55e;
 }
 
-/* Project Details (Accordion Content) */
 .project-details {
   padding: 0 1.5rem 1.5rem 1.5rem;
   color: #d1d5db;
@@ -123,7 +184,20 @@
   color: #ffffff;
 }
 
-/* Responsive */
+.project-members a {
+  color: #a7f3d0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: text-decoration 0.3s ease;
+}
+
+.project-members a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================================
+   Responsiveness
+=================================================== */
 @media (max-width: 768px) {
   .folder-title { font-size: 1.15rem; }
   .project-title { font-size: 1.1rem; }
