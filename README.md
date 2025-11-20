@@ -2,7 +2,7 @@
 
 This is my personal portfolio website showcasing my skills, projects, and artworks. It’s designed to give visitors a quick overview of who I am and what I do.
 
-🔗 **Live Site:** [pranav1495.github.io/PranavEswar](https://k-pranaveswar.github.io/)
+🔗 **Live Site:** [k-pranaveswar.github.io/](https://k-pranaveswar.github.io/)
 
 ---
 
