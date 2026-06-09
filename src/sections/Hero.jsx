@@ -74,19 +74,17 @@ function HeroComponent() {
             variants={itemVariants}
             className="mt-10 flex w-full max-w-sm flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-6"
           >
-            <a
-              href="#projects"
-              className="group relative flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ff2038] to-[#cc182b] px-8 py-4 text-sm font-bold text-white shadow-[0_0_30px_rgba(255,32,56,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,32,56,0.5)] sm:w-auto sm:text-base"
-            >
-              View Projects
-            </a>
+            <button
+  className="group relative flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ff2038] to-[#cc182b] px-8 py-4 text-sm font-bold text-white shadow-[0_0_30px_rgba(255,32,56,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,32,56,0.5)] sm:w-auto sm:text-base"
+>
+  View Projects
+</button>
 
-            <a
-              href="#contact"
-              className="flex w-full items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/50 px-8 py-4 text-sm font-bold text-zinc-300 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/30 hover:bg-white/10 hover:text-white sm:w-auto sm:text-base"
-            >
-              Contact Me
-            </a>
+<button
+  className="flex w-full items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/50 px-8 py-4 text-sm font-bold text-zinc-300 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/30 hover:bg-white/10 hover:text-white sm:w-auto sm:text-base"
+>
+  Contact Me
+</button>
           </motion.div>
 
           {/* Social Links */}
