@@ -75,7 +75,23 @@ function Projects() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center">
+      {/* --- Custom Glitch Title --- */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-24 flex items-center gap-4">
+        {/* Fading Red Line */}
+        <div className="h-[3px] w-16 bg-gradient-to-r from-transparent to-red-500 sm:w-24 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
+        
+        {/* Glitch Text */}
+        <h2 
+          className="text-3xl font-black uppercase tracking-[0.2em] text-white sm:text-4xl lg:text-5xl"
+          style={{ 
+            textShadow: '2px 0px 0px rgba(70, 150, 255, 0.8), -2px 0px 0px rgba(255, 50, 50, 0.8)' 
+          }}
+        >
+          PROJECTS
+        </h2>
+      </div>
+
+      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-150px)] max-w-7xl grid-cols-1 gap-12 px-6 pb-20 pt-10 lg:grid-cols-2 lg:items-center">
         
         {/* Left Content Area */}
         <div className="relative flex min-h-[500px] w-full flex-col justify-center pb-16 sm:min-h-[550px] lg:min-h-[600px]">
