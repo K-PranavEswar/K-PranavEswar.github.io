@@ -1,12 +1,19 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
+import { useState } from "react";
+import Home from "./pages/Home";
+import Loader from "./components/Loader";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
-  )
+    <>
+      {loading ? (
+        <Loader onComplete={() => setLoading(false)} />
+      ) : (
+        <Home />
+      )}
+    </>
+  );
 }
 
-export default App
+export default App;
