@@ -5,14 +5,10 @@ import Loader from "./components/Loader";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  return (
-    <>
-      {loading ? (
-        <Loader onComplete={() => setLoading(false)} />
-      ) : (
-        <Home />
-      )}
-    </>
+  return loading ? (
+    <Loader onComplete={() => setLoading(false)} />
+  ) : (
+    <Home />
   );
 }
 
