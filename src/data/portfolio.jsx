@@ -278,7 +278,7 @@ export const education = [
       'Computer Networks',
       'Web Technologies'
     ],
-    grade: '1st Semester - 8.55 SGPA',
+    grade: 'CGPA - 8.64',
     logo: 'KTU',
   },
   {
@@ -294,7 +294,7 @@ export const education = [
       'Software Engineering',
       'Computer Networks'
     ],
-    grade: 'Sem 3 - 8.13 CGPA | Sem 4 - 8.06 CGPA | Sem 5 - 8.25 CGPA',
+    grade: 'SGPA - 7.897',
     logo: 'KU',
   },
 ] 
